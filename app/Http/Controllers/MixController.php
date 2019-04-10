@@ -64,7 +64,7 @@ class MixController extends Controller
         $mix = $this->mixRepository->findBySlug($slug);
 
         if (!$mix) {
-            return json_encode(['not found']);
+            return json_encode(['error' => 'not found']);
         }
 
         $flavours = [];
