@@ -20,4 +20,9 @@ class MixRepository extends Repository {
     {
         return $this->model->where('slug', $slug)->with(['flavours', 'flavours.company'])->first();
     }
+
+    public function search($term)
+    {
+        return $this->model->where('name', 'like', '%'.$term.'%')->get();
+    } 
 }

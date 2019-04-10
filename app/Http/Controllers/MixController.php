@@ -87,6 +87,27 @@ class MixController extends Controller
         );
     }
 
+    public function search($term){
+        $mixes = $this->mixRepository->search($term);
+
+        if (!$mixes) {
+            return json_encode(['error' => 'not found']);
+        }
+
+        $results = [];
+
+        foreach ($mixes as $mix) {
+            $result = [
+                'name' => $mix->name,
+                'user' => $mix->user->username,
+                'slug' => $mix->slug
+            ];
+            array_push($results, $result);
+        }
+
+        return json_encode($results);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
