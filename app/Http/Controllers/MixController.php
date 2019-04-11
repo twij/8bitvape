@@ -87,7 +87,8 @@ class MixController extends Controller
         );
     }
 
-    public function search($term){
+    public function search($term)
+    {
         $mixes = $this->mixRepository->search($term);
 
         if (!$mixes) {
@@ -106,6 +107,36 @@ class MixController extends Controller
         }
 
         return json_encode($results);
+    }
+
+    public function find($term)
+    {
+        $mixes = $this->mixRepository->search($term);
+
+        if (!$mixes) {
+            return json_encode(['error' => 'not found']);
+        }
+
+        $mix = $mixes->first();
+
+        $flavours = [];
+
+        foreach ($mix->flavours as $flavour) {
+            $flv = [
+                'name' => $flavour->name,
+                'company' => $flavour->company->name,
+                'percentage' => $flavour->pivot->percentage
+            ];
+            array_push($flavours, $flv);
+        }
+
+        return json_encode(
+            [
+                'name' => $mix->name,
+                'user' => $mix->user->username,
+                'flavours' => $flavours
+            ]
+        );
     }
 
     /**

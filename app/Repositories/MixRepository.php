@@ -24,5 +24,5 @@ class MixRepository extends Repository {
     public function search($term)
     {
         return $this->model->where('name', 'like', '%'.$term.'%')->get();
-    } 
+    }
 }
