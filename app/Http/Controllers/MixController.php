@@ -113,9 +113,11 @@ class MixController extends Controller
     {
         $mixes = $this->mixRepository->search($term);
 
-        if (!$mixes) {
+        if (!count($mixes)) {
             return json_encode(['error' => 'not found']);
         }
+
+        dd($mixes);
 
         $mix = $mixes->first();
 
