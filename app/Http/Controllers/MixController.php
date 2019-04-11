@@ -117,8 +117,6 @@ class MixController extends Controller
             return json_encode(['error' => 'not found']);
         }
 
-        dd($mixes);
-
         $mix = $mixes->first();
 
         $flavours = [];
