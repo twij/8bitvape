@@ -103,20 +103,10 @@ class UserController extends Controller
         $mixes = [];
 
         foreach ($user->mixes as $mix) {
-            $flavours = [];
-
-            foreach ($mix->flavours as $flavour) {
-                $flv = [
-                    'name' => $flavour->name,
-                    'company' => $flavour->company->name,
-                    'percentage' => $flavour->pivot->percentage
-                ];
-                array_push($flavours, $flv);
-            }
             $mix = (
                 [
                     'name' => $mix->name,
-                    'flavours' => $flavours
+                    'slug' => $mix->slug,
                 ]
             );
             array_push($mixes, $mix);
