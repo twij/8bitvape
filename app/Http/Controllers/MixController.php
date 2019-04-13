@@ -67,6 +67,8 @@ class MixController extends Controller
             return json_encode(['error' => 'not found']);
         }
 
+        
+
         $flavours = [];
 
         foreach ($mix->flavours as $flavour) {
@@ -82,6 +84,7 @@ class MixController extends Controller
             [
                 'name' => $mix->name,
                 'user' => $mix->user->username,
+                'description' => $mix->description,
                 'flavours' => $flavours
             ]
         );
