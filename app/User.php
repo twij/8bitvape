@@ -33,4 +33,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function mixes()
+    {
+        return $this->hasMany('App\Mix');
+    }
 }

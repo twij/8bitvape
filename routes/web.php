@@ -25,3 +25,5 @@ Auth::routes();
 Route::get('api/mix/{slug}', 'MixController@getBySlug');
 Route::get('api/mix/search/{term}', 'MixController@search');
 Route::get('api/mix/find/{term}', 'MixController@find');
+
+Route::get('api/user/{username}', 'UserController@getUser');
