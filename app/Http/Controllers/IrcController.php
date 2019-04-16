@@ -182,7 +182,7 @@ class IrcController extends Controller
         $flavour = $this->flavourRepository->findBySlug($slug);
 
         if (!$flavour) {
-            return json_encode('error', 'not found');
+            return json_encode(['error' => 'not found']);
         }
 
         return json_encode(
