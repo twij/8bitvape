@@ -92,30 +92,5 @@ class UserController extends Controller
         //
     }
 
-    public function getUser($username)
-    {
-        $user = $this->userRepository->findByUsername($username);
 
-        if (!$user) {
-            return json_encode(['not found']);
-        }
-
-        $mixes = [];
-
-        foreach ($user->mixes as $mix) {
-            $mix = (
-                [
-                    'name' => $mix->name,
-                    'slug' => $mix->slug,
-                ]
-            );
-            array_push($mixes, $mix);
-        }
-
-        return json_encode([
-            'name' => $user->username,
-            'xp' => $user->xp,
-            'mixes' => $mixes
-        ]);
-    }
 }

@@ -22,8 +22,8 @@ Auth::routes();
 
 //Route::get('api/mix/{id}', 'MixController@get');
 
-Route::get('api/mix/{slug}', 'MixController@getBySlug');
-Route::get('api/mix/search/{term}', 'MixController@search');
-Route::get('api/mix/find/{term}', 'MixController@find');
-
-Route::get('api/user/{username}', 'UserController@getUser');
+Route::get('api/mix/{slug}', 'IrcController@getMixBySlug');
+Route::get('api/mix/search/{term}', 'IrcController@searchMixes');
+Route::get('api/mix/find/{term}', 'IrcController@findMix');
+Route::get('api/user/{username}', 'IrcController@getUser');
+Route::get('api/flavour/{slug}', 'IrcController@getFlavour');
