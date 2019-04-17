@@ -8,8 +8,7 @@ getJSON('https://8bitvape.com/api/flavour/' + input)
             }
             print(`{g}${obj.name}{/} by {b}${obj.company}{/}`)
             print(`{o}${obj.description}{/}`)
-        }
-        else {
+        } else {
             print('not found');
         }
     })

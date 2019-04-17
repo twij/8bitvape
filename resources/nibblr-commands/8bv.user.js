@@ -10,8 +10,7 @@ getJSON('https://8bitvape.com/api/user/' + input)
             obj.mixes.forEach(function(mix){
                 print(`{p}${mix.name}{/}: {r}${mix.slug}`)
             })
-        }
-        else {
+        } else {
             print('not found');
         }
     })

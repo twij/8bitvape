@@ -11,8 +11,7 @@ getJSON('https://8bitvape.com/api/mix/' + input)
             obj.flavours.forEach(function(flv){
                 print(`{p}${flv.company}{/} {y}${flv.name}{/}: {r}${flv.percentage}%{/}`)
             })
-        }
-        else {
+        } else {
             print('not found');
         }
     })
