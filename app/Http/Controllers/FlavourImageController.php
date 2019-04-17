@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\FlavourImage;
 use Illuminate\Http\Request;
 
 class FlavourImageController extends Controller

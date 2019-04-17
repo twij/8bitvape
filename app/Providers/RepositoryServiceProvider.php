@@ -6,10 +6,10 @@ use App\Repositories\MixRepository;
 use App\Repositories\CompanyRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\FlavourRepository;
-use App\Mix;
-use App\Company;
-use App\User;
-use App\Flavour;
+use App\Models\Mix;
+use App\Models\Company;
+use App\Models\User;
+use App\Models\Flavour;
 
 class RepositoryServiceProvider extends ServiceProvider{
 

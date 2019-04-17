@@ -13,7 +13,7 @@ class MixRepository extends Repository {
      */
     function model()
     {
-        return 'App\Mix';
+        return 'App\Models\Mix';
     }
 
     /**

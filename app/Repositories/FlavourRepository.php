@@ -12,7 +12,7 @@ class FlavourRepository extends Repository {
      */
     function model()
     {
-        return 'App\Flavour';
+        return 'App\Models\Flavour';
     }
 
     /**
@@ -20,7 +20,7 @@ class FlavourRepository extends Repository {
      *
      * @param String $slug Flavour slug
      * 
-     * @return App\Flavour Flavour Model
+     * @return App\Models\Flavour Flavour Model
      */
     function findBySlug($slug) 
     {

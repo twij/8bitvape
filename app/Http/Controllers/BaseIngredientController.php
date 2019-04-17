@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\BaseIngredients;
 use Illuminate\Http\Request;
 
 class BaseIngredientsController extends Controller

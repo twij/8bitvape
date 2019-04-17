@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Update;
 use Illuminate\Http\Request;
 
 class UpdateController extends Controller

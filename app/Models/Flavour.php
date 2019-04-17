@@ -1,8 +1,8 @@
-<?php namespace App;
+<?php namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Flavour extends Model
+class Flavour extends BaseModel
 {
     /**
      * Return related mixes
@@ -11,7 +11,7 @@ class Flavour extends Model
      */
     public function mixes()
     {
-        return $this->belongsToMany('App\Mix');
+        return $this->belongsToMany('App\Models\Mix');
     }
 
     /**
@@ -21,6 +21,6 @@ class Flavour extends Model
      */
     public function company()
     {
-        return $this->belongsTo('App\FlavourCompany', 'flavour_company_id', 'id');
+        return $this->belongsTo('App\Models\FlavourCompany', 'flavour_company_id', 'id');
     }
 }

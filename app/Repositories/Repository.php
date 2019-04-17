@@ -3,15 +3,11 @@
 use App\Repositories\Contracts\CriteriaInterface;
 use App\Repositories\Criteria\Criteria;
 use App\Repositories\Contracts\RepositoryInterface;
-use App\Repositories\Exceptions\RepositoryException;
 use Illuminate\Database\Eloquent\Model;
+use App\Repositories\Exceptions\RepositoryException;
 use Illuminate\Support\Collection;
 use Illuminate\Container\Container as App;
 
-/**
- * Class Repository
- * @package Bosnadev\Repositories\Eloquent
- */
 abstract class Repository implements RepositoryInterface, CriteriaInterface {
 
     /**
@@ -37,7 +33,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
     /**
      * @param App $app
      * @param Collection $collection
-     * @throws \Bosnadev\Repositories\Exceptions\RepositoryException
+     * @throws App\Repositories\Exceptions\RepositoryException
      */
     public function __construct(App $app, Collection $collection) {
         $this->app = $app;
@@ -126,9 +122,9 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
     public function makeModel() {
         $model = $this->app->make($this->model());
 
-        if (!$model instanceof Model)
-            die('oops');
-            //throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+        if (!$model instanceof Model) {
+            throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+        }
 
         return $this->model = $model->newQuery();
     }

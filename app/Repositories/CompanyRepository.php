@@ -12,6 +12,6 @@ class CompanyRepository extends Repository {
      */
     function model()
     {
-        return 'App\Company';
+        return 'App\Models\Company';
     }
 }

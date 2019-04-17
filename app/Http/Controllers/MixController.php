@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mix;
+use App\Models\Mix;
 use App\Repositories\MixRepository;
 use App\Repositories\Criteria\Mix\LessThan2DaysOld;
 use Illuminate\Http\Request;
@@ -22,7 +22,7 @@ class MixController extends Controller
     public function index()
     {
         //
-        $this->mixRepository->pushCriteria(new LessThan2DaysOld());
+        //$this->mixRepository->pushCriteria(new LessThan2DaysOld());
         $mixes = \Response::json($this->mixRepository->all());
 
         return $mixes;

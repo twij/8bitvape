@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\KnownHarmfuls;
 use Illuminate\Http\Request;
 
 class KnownHarmfulsController extends Controller

@@ -12,7 +12,7 @@ class UserRepository extends Repository {
      */
     function model()
     {
-        return 'App\User';
+        return 'App\Models\User';
     }
 
     /**

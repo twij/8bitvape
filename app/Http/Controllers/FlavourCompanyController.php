@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\FlavourCompany;
 use Illuminate\Http\Request;
 
 class FlavourCompanyController extends Controller
