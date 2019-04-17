@@ -147,7 +147,7 @@ class IrcController extends Controller
         $user = $this->userRepository->findByUsername($username);
 
         if (!$user) {
-            return json_encode(['error', 'not found']);
+            return json_encode(['error' => 'not found']);
         }
 
         $mixes = [];
