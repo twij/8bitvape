@@ -3,5 +3,7 @@
 @section('title', '8BitVape')
 
 @section('content')
-    #8bitvape @ irc.rizon.net
+    <div class="holding-text">
+        #8bitvape @ irc.rizon.net
+    </div>
 @endsection
