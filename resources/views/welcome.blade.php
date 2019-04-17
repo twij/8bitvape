@@ -1,15 +1,7 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts/temp')
 
-        <title>8BitVape</title>
-    </head>
-    <body>
-        <div class="container">
-            #8bitvape @ irc.rizon.net
-        </div>
-    </body>
-</html>
+@section('title', '8BitVape')
+
+@section('content')
+    #8bitvape @ irc.rizon.net
+@endsection
