@@ -15,11 +15,25 @@ class UserRepository extends Repository {
         return 'App\User';
     }
 
+    /**
+     * Find a user by their username
+     *
+     * @param String $username Username
+     * 
+     * @return App\User User model
+     */
     public function findByUsername($username)
     {
         return $this->model->where('username', $username)->with(['mixes'])->first();
     }
 
+    /**
+     * Search for a user
+     *
+     * @param String $term Search term
+     * 
+     * @return App\User User model
+     */
     public function search($term)
     {
         return $this->model->where('username', 'like', '%'.$term.'%')->first();

@@ -4,7 +4,6 @@ use App\Repositories\Contracts\CriteriaInterface;
 use App\Repositories\Criteria\Criteria;
 use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Exceptions\RepositoryException;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Container\Container as App;

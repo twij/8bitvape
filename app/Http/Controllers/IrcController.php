@@ -40,7 +40,8 @@ class IrcController extends Controller
      * 
      * @return String Json encoded mix
      */
-    public function getMixBySlug($slug){
+    public function getMixBySlug($slug)
+    {
         $mix = $this->mixRepository->findBySlug($slug);
 
         if (!$mix) {
@@ -171,7 +172,7 @@ class IrcController extends Controller
     }
 
     /**
-     * Get infromation about flavour
+     * Get information about flavour
      *
      * @param String $slug Flavour slug
      * 
@@ -193,6 +194,4 @@ class IrcController extends Controller
             ]
         );
     }
-
-    
 }

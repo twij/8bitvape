@@ -16,11 +16,25 @@ class MixRepository extends Repository {
         return 'App\Mix';
     }
 
+    /**
+     * Find a mix by its slug
+     *
+     * @param String $slug Mix slug
+     * 
+     * @return App\Mix Mix Model
+     */
     public function findBySlug($slug)
     {
         return $this->model->where('slug', $slug)->with(['flavours', 'flavours.company'])->first();
     }
 
+    /**
+     * Search for a mix
+     *
+     * @param String $term Search Term
+     * 
+     * @return App\Mix Mix model
+     */
     public function search($term)
     {
         return $this->model->where('name', 'like', '%'.$term.'%')->get();

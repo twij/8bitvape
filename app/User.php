@@ -21,6 +21,11 @@ class User extends Authenticatable
     const ADMIN_TYPE = 'admin';
     const DEFAULT_TYPE = 'default';
     
+    /**
+     * Check if admin
+     *
+     * @return boolean Status
+     */
     public function isAdmin()    {
         return $this->type === self::ADMIN_TYPE;
     }
@@ -34,6 +39,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Return related mixes
+     *
+     * @return Relationship Mixes
+     */
     public function mixes()
     {
         return $this->hasMany('App\Mix');

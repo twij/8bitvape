@@ -8,6 +8,8 @@
         <title>8BitVape</title>
     </head>
     <body>
-        #8bitvape @ irc.rizon.net
+        <div class="container">
+            #8bitvape @ irc.rizon.net
+        </div>
     </body>
 </html>

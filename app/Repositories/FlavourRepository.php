@@ -15,6 +15,13 @@ class FlavourRepository extends Repository {
         return 'App\Flavour';
     }
 
+    /**
+     * Find a flavour by its slug
+     *
+     * @param String $slug Flavour slug
+     * 
+     * @return App\Flavour Flavour Model
+     */
     function findBySlug($slug) 
     {
         return $this->model->where('slug', $slug)->first();

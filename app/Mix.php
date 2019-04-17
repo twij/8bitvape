@@ -1,16 +1,26 @@
-<?php
-
-namespace App;
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Mix extends Model
 {
-    public function flavours(){
+    /**
+     * Return related flavours
+     *
+     * @return Relationship Flavours
+     */
+    public function flavours()
+    {
         return $this->belongsToMany('App\Flavour')->withPivot('percentage');
     }
 
-    public function user(){
+    /**
+     * Return related user
+     *
+     * @return Relationship User
+     */
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
 }
