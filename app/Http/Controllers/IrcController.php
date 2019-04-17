@@ -130,6 +130,7 @@ class IrcController extends Controller
             [
                 'name' => $mix->name,
                 'user' => $mix->user->username,
+                'description' => $mix->description,
                 'flavours' => $flavours
             ]
         );
