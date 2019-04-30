@@ -14,7 +14,7 @@ class FlavourTypesTableSeeder extends Seeder
         DB::table('flavour_types')->truncate();
         $flavours = DB::connection('8bitvape_old')->table('flavour')->select('type')->groupBy('type')->get();
 
-        foreach($flavours as $flavour){
+        foreach ($flavours as $flavour) {
             $data = [
                 ['name' => $flavour->type],
             ];

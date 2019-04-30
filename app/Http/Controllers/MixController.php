@@ -11,7 +11,8 @@ class MixController extends Controller
 {
     protected $mixRepository;
 
-    public function __construct(MixRepository $MixRepository){
+    public function __construct(MixRepository $MixRepository)
+    {
         $this->mixRepository = $MixRepository;
     }
     /**

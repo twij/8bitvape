@@ -18,7 +18,7 @@ class MixesTableSeeder extends Seeder
         $mixes = DB::connection('8bitvape_old')->table('useritem')
                         ->join('commix', 'useritem.uniquecode', '=', 'commix.itemID')
                         ->select('useritem.*', 'commix.*')->get();
-        foreach($mixes as $mix){
+        foreach ($mixes as $mix) {
             $newMix = new Mix;
 
             $user = User::where('username', strtolower($mix->username))->first();
@@ -38,12 +38,12 @@ class MixesTableSeeder extends Seeder
 
             $flavours = explode(' ', $mix->flavours);
 
-            foreach($flavours as $flavour){
-                if($flavour){
+            foreach ($flavours as $flavour) {
+                if ($flavour) {
                     $mixFlavour = explode(':', $flavour);
                     $newFlavour = DB::table('flavours')->where('slug', $mixFlavour[0])->first();
                     $percentage = $mixFlavour[1];
-                    if($newFlavour){
+                    if ($newFlavour) {
                         $newMix->flavours()->attach($newFlavour->id, ['percentage' => $percentage]);
                     }
                 }
@@ -53,12 +53,12 @@ class MixesTableSeeder extends Seeder
 
             $comments = DB::connection('8bitvape_old')->table('comcomments')->where('mixID', '=', $mix->ID)->get();
 
-            foreach($comments as $comment){
+            foreach ($comments as $comment) {
                 $commentuser = User::where('username', strtolower($comment->user))->first();
 
-                if($commentuser == null){
+                if ($commentuser == null) {
                     $userId = 0;
-                }else{
+                } else {
                     $userId = $commentuser->id;
                     $commentuser->xp += 500; //xp for being cool
                     $commentuser->save();
@@ -75,8 +75,6 @@ class MixesTableSeeder extends Seeder
                 ];
                 DB::table('comments')->insert($data);
             }
-
-
         }
         $this->command->getOutput()->writeln("<info>Flavours seeded OK!</info>");
     }

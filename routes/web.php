@@ -27,3 +27,6 @@ Route::get('api/mix/search/{term}', 'IrcController@searchMixes');
 Route::get('api/mix/find/{term}', 'IrcController@findMix');
 Route::get('api/user/{username}', 'IrcController@getUser');
 Route::get('api/flavour/{slug}', 'IrcController@getFlavour');
+Route::get('api/comments/{slug}', 'IrcController@getComments');
+
+Route::get('temp/pixel', 'SvgController@create');

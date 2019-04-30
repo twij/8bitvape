@@ -3,16 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\CompanyRepository;
 
-class CompanyController extends Controller
+class SvgController extends Controller
 {
-    protected $companyRepository;
-
-    public function __construct(CompanyRepository $companyRepository)
-    {
-        $this->companyRepository = $companyRepository;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +13,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = $this->companyRepository->all();
-        return view('company.index', compact('companies'));
+        //
     }
 
     /**
@@ -31,8 +23,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
-        return view('company.form');
+        return view('temp/pixel');
     }
 
     /**
@@ -49,10 +40,10 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Achievement  $achievement
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show(Achievement $achievement)
     {
         //
     }
@@ -60,10 +51,10 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Achievement  $achievement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit(Achievement $achievement)
     {
         //
     }
@@ -72,10 +63,10 @@ class CompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Company  $company
+     * @param  \App\Achievement  $achievement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, Achievement $achievement)
     {
         //
     }
@@ -83,10 +74,10 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Achievement  $achievement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy(Achievement $achievement)
     {
         //
     }

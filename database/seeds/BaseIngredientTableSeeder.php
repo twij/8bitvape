@@ -11,7 +11,6 @@ class BaseIngredientTableSeeder extends Seeder
      */
     public function run()
     {
-
         DB::table('base_ingredients')->truncate();
         $data = [
             ['name' => 'Vegetable Glycerine', 'slug' => 'vg',

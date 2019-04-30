@@ -6,7 +6,8 @@ use App\Repositories\Criteria\Criteria;
  * Interface CriteriaInterface
  * @package Bosnadev\Repositories\Contracts
  */
-interface CriteriaInterface {
+interface CriteriaInterface
+{
 
     /**
      * @param bool $status

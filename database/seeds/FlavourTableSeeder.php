@@ -15,7 +15,7 @@ class FlavourTableSeeder extends Seeder
         //
         DB::table('flavours')->truncate();
         $flavours = DB::connection('8bitvape_old')->table('flavour')->select(DB::raw('*, type as flavour_type'))->get();
-        foreach($flavours as $flavour){
+        foreach ($flavours as $flavour) {
             $company = DB::table('flavour_companies')->where('name', $flavour->company)->first();
             $flavourType = DB::table('flavour_types')->where('name', $flavour->flavour_type)->first();
 

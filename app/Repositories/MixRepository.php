@@ -4,14 +4,15 @@ use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Criteria\Mix\LessThan2DaysOld;
 use App\Repositories\Repository;
 
-class MixRepository extends Repository {
+class MixRepository extends Repository
+{
 
     /**
      * Specify Model class name
      *
      * @return mixed
      */
-    function model()
+    public function model()
     {
         return 'App\Models\Mix';
     }
@@ -20,7 +21,7 @@ class MixRepository extends Repository {
      * Find a mix by its slug
      *
      * @param String $slug Mix slug
-     * 
+     *
      * @return App\Mix Mix Model
      */
     public function findBySlug($slug)
@@ -32,7 +33,7 @@ class MixRepository extends Repository {
      * Search for a mix
      *
      * @param String $term Search Term
-     * 
+     *
      * @return App\Mix Mix model
      */
     public function search($term)

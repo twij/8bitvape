@@ -1,0 +1,92 @@
+.pixel-editor-container{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    padding: 10%;
+}
+
+.pixel-grid{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url('/img/grid-bg.png');
+    border: 1px solid #666;
+    box-sizing: border-box;
+}
+
+.pixel-element{
+    width: 6.25%;
+    box-sizing: border-box;
+    height: 0;
+    padding-top: 6.25%;
+    border: 1px solid #666;
+}
+
+.toolbox{
+    width: 25%;
+    margin-left: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.current-colours{
+    width: 100%;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.colour-1{
+    width: 30%;
+    height: 0;
+    padding-top: 30%;
+    border: 2px solid #666;
+    margin: 8%;
+}
+
+.colour-2{
+    width: 30%;
+    height: 0;
+    padding-top: 30%;
+    border: 2px solid #666;
+    margin: 8%;
+}
+
+.colour-grid{
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border: 1px solid #666;
+    box-sizing: border-box;
+}
+
+.colour-element{
+    width: 10%;
+    height: 0;
+    padding-top: 10%;
+    border: 1px solid #666;
+    box-sizing: border-box;
+}
+
+.brushes-grid{
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border: 1px solid #666;
+    box-sizing: border-box;
+}
+
+.brush-element{
+    width: 16.6%;
+    height: 0;
+    padding-top: 16.6%;
+    border: 1px solid #666;
+    box-sizing: border-box;
+}
+

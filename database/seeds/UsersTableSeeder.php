@@ -20,14 +20,14 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert($data);
 
         $users = DB::connection('8bitvape_old')->table('commix')->select(DB::raw('username'))->groupBy('username')->get();
-        foreach($users as $user){
+        foreach ($users as $user) {
             $data = [
                 'username' => strtolower($user->username),
                 'password' => 'notarealpassword',
                 'enabled' => false,
                 'imported' => true
             ];
-            if($user->username != 'barf'){
+            if ($user->username != 'barf') {
                 DB::table('users')->insert($data);
             }
         }

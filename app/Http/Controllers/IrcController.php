@@ -37,7 +37,7 @@ class IrcController extends Controller
      * Get a mix via its slug
      *
      * @param String $slug Mix slug
-     * 
+     *
      * @return String Json encoded mix
      */
     public function getMixBySlug($slug)
@@ -73,7 +73,7 @@ class IrcController extends Controller
      * Search mixes for text string
      *
      * @param String $term Search query
-     * 
+     *
      * @return String Json encoded search results
      */
     public function searchMixes($term)
@@ -102,7 +102,7 @@ class IrcController extends Controller
      * Search mixes, return closest match
      *
      * @param String $term Search Term
-     * 
+     *
      * @return String Json encoded mix
      */
     public function findMix($term)
@@ -140,7 +140,7 @@ class IrcController extends Controller
      * Get a user's mixes by their username
      *
      * @param String $username Username string
-     * 
+     *
      * @return String Json encoded user info
      */
     public function getUser($username)
@@ -176,7 +176,7 @@ class IrcController extends Controller
      * Get information about flavour
      *
      * @param String $slug Flavour slug
-     * 
+     *
      * @return String Json encoded flavour info
      */
     public function getFlavour($slug)
@@ -192,6 +192,39 @@ class IrcController extends Controller
                 'name' => $flavour->name,
                 'company' => $flavour->company->name,
                 'description' => $flavour->description
+            ]
+        );
+    }
+
+    public function getComments($slug)
+    {
+        $mix = $this->mixRepository->findBySlug($slug);
+
+        if (!$mix) {
+            return json_encode(['error' => 'not found']);
+        }
+
+        $comments = [];
+
+        foreach ($mix->comments as $comment) {
+            if ($comment->user) {
+                $username = $comment->user->name;
+            } else {
+                $username = "Unknown";
+            }
+            $com = [
+                'user' => $username,
+                'comment' => $comment->comment
+            ];
+            array_push($comments, $com);
+        }
+
+        return json_encode(
+            [
+                'name' => $mix->name,
+                'user' => $mix->user->username,
+                'description' => strip_tags($mix->description),
+                'flavours' => $comments
             ]
         );
     }

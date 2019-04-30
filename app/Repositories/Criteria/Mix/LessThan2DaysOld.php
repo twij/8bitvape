@@ -4,7 +4,8 @@ use App\Repositories\Criteria\Criteria;
 use Bosnadev\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Contracts\RepositoryInterface as Repository;
 
-class LessThan2DaysOld extends Criteria {
+class LessThan2DaysOld extends Criteria
+{
 
     /**
      * @param $model

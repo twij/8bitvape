@@ -3,7 +3,7 @@
 use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Repository;
 
-class CompanyRepository extends Repository
+class CommentRepository extends Repository
 {
 
     /**
@@ -13,6 +13,6 @@ class CompanyRepository extends Repository
      */
     public function model()
     {
-        return 'App\Models\Company';
+        return 'App\Models\Comment';
     }
 }

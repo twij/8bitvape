@@ -11,7 +11,6 @@ class MixTypesTableSeeder extends Seeder
      */
     public function run()
     {
-
         DB::table('mix_types')->truncate();
         $data = [
             ['name' => 'Imported', 'description' => 'Mixes imported from the old 8bv db.'],

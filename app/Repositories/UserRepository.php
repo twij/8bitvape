@@ -3,14 +3,15 @@
 use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Repository;
 
-class UserRepository extends Repository {
+class UserRepository extends Repository
+{
 
     /**
      * Specify Model class name
      *
      * @return mixed
      */
-    function model()
+    public function model()
     {
         return 'App\Models\User';
     }
@@ -19,7 +20,7 @@ class UserRepository extends Repository {
      * Find a user by their username
      *
      * @param String $username Username
-     * 
+     *
      * @return App\User User model
      */
     public function findByUsername($username)
@@ -31,7 +32,7 @@ class UserRepository extends Repository {
      * Search for a user
      *
      * @param String $term Search term
-     * 
+     *
      * @return App\User User model
      */
     public function search($term)

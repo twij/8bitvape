@@ -1,7 +1,7 @@
 <?php namespace App\Repositories\Contracts;
 
-interface RepositoryInterface {
-
+interface RepositoryInterface
+{
     public function all($columns = array('*'));
 
     public function paginate($perPage = 15, $columns = array('*'));

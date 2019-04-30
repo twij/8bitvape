@@ -11,20 +11,20 @@ use App\Models\Company;
 use App\Models\User;
 use App\Models\Flavour;
 
-class RepositoryServiceProvider extends ServiceProvider{
-
-public function register()
+class RepositoryServiceProvider extends ServiceProvider
+{
+    public function register()
     {
-        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface",function(){
+        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface", function () {
             return new MixRepository(new Mix());
         });
-        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface",function(){
+        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface", function () {
             return new CompanyRepository(new Company());
         });
-        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface",function(){
+        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface", function () {
             return new UserRepository(new User());
         });
-        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface",function(){
+        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface", function () {
             return new FlavourRepository(new Flavour());
         });
     }
