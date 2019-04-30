@@ -215,7 +215,7 @@ class IrcController extends Controller
 
         foreach ($mix->comments as $comment) {
             if ($comment->user) {
-                $username = $comment->user->name;
+                $username = $comment->user->username;
             } else {
                 $username = "Unknown";
             }
