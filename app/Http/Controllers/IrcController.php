@@ -221,7 +221,8 @@ class IrcController extends Controller
             }
             $com = [
                 'user' => $username,
-                'comment' => strip_tags($comment->comment)
+                'comment' => strip_tags($comment->comment),
+                'rating' => $comment->rating
             ];
             array_push($comments, $com);
         }
