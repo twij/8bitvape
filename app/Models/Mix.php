@@ -24,6 +24,11 @@ class Mix extends BaseModel
         return $this->belongsTo('App\Models\User');
     }
 
+    /**
+     * Return related comments
+     *
+     * @return Relationship Comments
+     */
     public function comments()
     {
         return $this->hasMany('App\Models\Comment', 'related_id');

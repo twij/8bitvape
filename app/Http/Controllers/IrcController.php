@@ -196,6 +196,13 @@ class IrcController extends Controller
         );
     }
 
+    /**
+     * Get comments for a mix
+     *
+     * @param String $slug Mix slug
+     *
+     * @return String Json encoded comments
+     */
     public function getComments($slug)
     {
         $mix = $this->mixRepository->findBySlug($slug);

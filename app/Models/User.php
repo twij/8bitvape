@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Mix');
     }
 
+    /**
+     * Return related user
+     *
+     * @return Relationship User
+     */
     public function user()
     {
         return $this->hasMany('App\Models\Comment');
