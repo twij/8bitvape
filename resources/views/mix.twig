@@ -1,0 +1,28 @@
+{% extends 'layouts/default' %}
+
+{% block content %}
+
+
+
+<div class="mix-container">
+    <div class="mix-title">
+        <h1>{{ mix.name }}</h1>
+        <h2>by {{ mix.user.username }}</h2>
+    </div>
+    <div class="mix-description">
+        <p>{{ mix.description|raw }}</p>
+    </div>
+    <div class="mix-recipe">
+        {% for flavour in mix.flavours %}
+            <div class="flavour">
+                <div class="flavour">
+                    <img src="/img/flavimg/{{ flavour.slug }}.png" alt="{{ flavour.name }}" />
+                    <p><strong>{{ flavour.name|raw }}</strong> by {{ flavour.company.name }}</p>
+                </div>
+                <div class="amount">{{ flavour.pivot.percentage }}%</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

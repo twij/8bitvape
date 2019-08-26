@@ -14,9 +14,9 @@ use App\Http\Resources\MixCollection;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MixController@index');
+
+Route::get('mix/{slug}', 'MixController@show');
 
 Auth::routes();
 

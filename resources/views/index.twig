@@ -1,0 +1,22 @@
+{% extends 'layouts/default' %}
+
+{% block content %}
+    {% for mix in mixes %}
+        <a href="/mix/{{ mix.slug }}">
+        <div class="mixes-container">
+            <div class="mix-title">
+                <h1>{{ mix.name }}</h1>
+                <h2>{{ mix.user.username }}</h2>
+            </div>
+            <div class="mix-icons">
+                {% for flavour in mix.flavours %}
+                    <img src="/img/flavimg/{{ flavour.slug }}.png" alt="{{ flavour.name }}" />
+                {% endfor %}
+            </div>
+        </div>
+        </a>
+    {% endfor %}
+
+    {{ mixes.links()|raw }}
+
+{% endblock %}

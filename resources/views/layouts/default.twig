@@ -1,0 +1,32 @@
+<!doctype html>
+
+<!--[if lt IE 7]>
+<html class="nojs ms lt_ie7" lang="en"><![endif]-->
+<!--[if IE 7]>
+<html class="nojs ms ie7" lang="en"><![endif]-->
+<!--[if IE 8]>
+<html class="nojs ms ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]>
+<html class="nojs ms" lang="en"><![endif]-->
+
+<html lang="en">
+
+<head>
+    {% include('partials/meta') %}
+</head>
+
+<body>
+    <div class="page-container">
+        {% include('partials/header') %}
+
+        <div class="wrapper">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% include('partials/footer') %}
+    </div>
+
+    {% include('partials/assets') %}
+</body>
+
+</html>

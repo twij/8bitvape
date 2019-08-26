@@ -1,4 +1,3 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -9,15 +8,8 @@
 //@import '~bootstrap/scss/bootstrap';
 
 //pixel stuff
-@import 'pixel';
+// @import 'pixel';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+@import '8bvmain';
 
-.holding-text {
-  font-family: 'Nunito', sans-serif;
-  padding: 12px;
-}
 

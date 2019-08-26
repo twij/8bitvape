@@ -10,7 +10,8 @@
         "genealabs/laravel-model-caching": "*",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "rcrowe/twigbridge": "^0.11.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

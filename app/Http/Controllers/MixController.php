@@ -22,11 +22,9 @@ class MixController extends Controller
      */
     public function index()
     {
-        //
-        //$this->mixRepository->pushCriteria(new LessThan2DaysOld());
-        $mixes = \Response::json($this->mixRepository->all());
+        $mixes = $this->mixRepository->paginate(20);
 
-        return $mixes;
+        return view('index', compact('mixes'));
     }
 
     /**
@@ -53,12 +51,18 @@ class MixController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mix  $mix
+     * @param  String  $slug Mix Slug
      * @return \Illuminate\Http\Response
      */
-    public function show(Mix $mix)
+    public function show($slug)
     {
-        //
+        $mix = $this->mixRepository->findBySlug($slug);
+
+        if ($mix) {
+            return view('mix', compact('mix'));
+        }
+
+        abort(404);
     }
 
 
