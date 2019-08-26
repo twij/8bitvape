@@ -45,7 +45,7 @@ class IrcController extends Controller
         $mix = $this->mixRepository->findBySlug($slug);
 
         if (!$mix) {
-            return json_encode(['error' => 'not found']);
+            return response()->json(['error' => 'not found']);
         }
 
         $flavours = [];
@@ -59,7 +59,7 @@ class IrcController extends Controller
             array_push($flavours, $flv);
         }
 
-        return json_encode(
+        return response()->json(
             [
                 'name' => $mix->name,
                 'user' => $mix->user->username,
@@ -81,7 +81,7 @@ class IrcController extends Controller
         $mixes = $this->mixRepository->search($term);
 
         if (!$mixes) {
-            return json_encode(['error' => 'not found']);
+            return response()->json(['error' => 'not found']);
         }
 
         $results = [];
@@ -95,7 +95,7 @@ class IrcController extends Controller
             array_push($results, $result);
         }
 
-        return json_encode($results);
+        return response()->json($results);
     }
 
     /**
@@ -110,7 +110,7 @@ class IrcController extends Controller
         $mixes = $this->mixRepository->search($term);
 
         if (!count($mixes)) {
-            return json_encode(['error' => 'not found']);
+            return response()->json(['error' => 'not found']);
         }
 
         $mix = $mixes->first();
@@ -126,7 +126,7 @@ class IrcController extends Controller
             array_push($flavours, $flv);
         }
 
-        return json_encode(
+        return response()->json(
             [
                 'name' => $mix->name,
                 'user' => $mix->user->username,
@@ -148,7 +148,7 @@ class IrcController extends Controller
         $user = $this->userRepository->findByUsername($username);
 
         if (!$user) {
-            return json_encode(['error' => 'not found']);
+            return response()->json(['error' => 'not found']);
         }
 
         $mixes = [];
@@ -163,7 +163,7 @@ class IrcController extends Controller
             array_push($mixes, $mix);
         }
 
-        return json_encode(
+        return response()->json(
             [
                 'name' => $user->username,
                 'xp' => $user->xp,
@@ -184,10 +184,10 @@ class IrcController extends Controller
         $flavour = $this->flavourRepository->findBySlug($slug);
 
         if (!$flavour) {
-            return json_encode(['error' => 'not found']);
+            return response()->json(['error' => 'not found']);
         }
 
-        return json_encode(
+        return response()->json(
             [
                 'name' => $flavour->name,
                 'company' => $flavour->company->name,
@@ -208,7 +208,7 @@ class IrcController extends Controller
         $mix = $this->mixRepository->findBySlug($slug);
 
         if (!$mix) {
-            return json_encode(['error' => 'not found']);
+            return response()->json(['error' => 'not found']);
         }
 
         $comments = [];
@@ -227,7 +227,7 @@ class IrcController extends Controller
             array_push($comments, $com);
         }
 
-        return json_encode(
+        return response()->json(
             [
                 'name' => $mix->name,
                 'user' => $mix->user->username,
