@@ -312,10 +312,11 @@ a {
 }
 
 .page-container .title {
-  padding: 10px;
+  padding: 2px 10px;
   margin: 10px;
   background-color: #000;
   color: #fff;
+  text-align: center;
 }
 
 .page-container .content {
