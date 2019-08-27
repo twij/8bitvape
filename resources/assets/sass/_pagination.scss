@@ -1,0 +1,30 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page-item {
+    background-color: black;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 2px;
+}
+
+.page-item.active {
+    font-weight: bold;
+    color: white;
+}
+
+.page-item.disabled {
+    font-weight: bold;
+    color: white;
+}
+
+.page-item a{
+    text-decoration: none;
+    color: white;
+}

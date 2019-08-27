@@ -4,6 +4,7 @@ use App\Models\BaseModel;
 
 class Mix extends BaseModel
 {
+    protected $appends = ['rating'];
     /**
      * Return related flavours
      *
@@ -39,9 +40,9 @@ class Mix extends BaseModel
      *
      * @return Query Average rating
      */
-    public function rating()
+    public function getRatingAttribute()
     {
-        return $this->comments()->selectRaw('avg(rating) as rating');
+        return number_format($this->comments->avg('rating'), 1);
     }
 
     /**

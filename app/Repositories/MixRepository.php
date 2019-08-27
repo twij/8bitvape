@@ -28,7 +28,7 @@ class MixRepository extends Repository
     {
         return $this->model->where('slug', $slug)
             ->enabled()
-            ->with(['user', 'flavours', 'flavours.company'])
+            ->with(['user', 'flavours', 'flavours.company', 'comments'])
             ->first();
     }
 

@@ -162,6 +162,10 @@ body {
   image-rendering: auto;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .page-container {
   position: relative;
   min-height: 95vh;
@@ -223,6 +227,99 @@ a {
   margin: 3px;
 }
 
+.mix-container {
+  padding: 10px;
+  margin: 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+.mix-container .mix-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mix-container .mix-title h1 {
+  margin: 5px 0;
+}
+
+.mix-container .mix-title h2 {
+  margin: 5px 0;
+}
+
+.mix-container .mix-description {
+  line-height: 24px;
+}
+
+.mix-container .mix-recipe .flavour {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mix-container .mix-recipe .flavour img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.mix-container .mix-recipe .flavour .amount {
+  margin-left: 10px;
+}
+
+.comment-title {
+  padding: 10px;
+  margin: 30px 10px 10px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.comment-title h1 {
+  margin: 10px;
+}
+
+@media only screen and (max-width: 550px) {
+  .comment-title {
+    display: block;
+  }
+}
+
+.comment-container {
+  padding: 10px;
+  margin: 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+.comment-container h1 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.comment-container h2 {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.comment-container p {
+  margin-bottom: 0;
+  line-height: 24px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 10px;
+  height: 2.5rem;
+  text-align: right;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -252,45 +349,5 @@ a {
 .page-item a {
   text-decoration: none;
   color: white;
-}
-
-.mix-container {
-  padding: 10px;
-  margin: 10px;
-  background-color: #000;
-  color: #fff;
-}
-
-.mix-container .mix-title h1 {
-  margin: 5px 0;
-}
-
-.mix-container .mix-title h2 {
-  margin: 5px 0;
-}
-
-.mix-recipe .flavour {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.mix-recipe .flavour img {
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
-}
-
-.mix-recipe .flavour .amount {
-  margin-left: 10px;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-right: 10px;
-  height: 2.5rem;
-  text-align: right;
 }
 

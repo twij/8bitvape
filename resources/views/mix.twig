@@ -6,8 +6,13 @@
 
 <div class="mix-container">
     <div class="mix-title">
-        <h1>{{ mix.name }}</h1>
-        <h2>by {{ mix.user.username }}</h2>
+        <div class="col">
+            <h1>{{ mix.name }}</h1>
+            <h2>by {{ mix.user.username }}</h2>
+        </div>
+        <div class="col text-right">
+            <p>Creator Rating: {{ mix.creator_rating }}/5</p>
+        </div>
     </div>
     <div class="mix-description">
         <p>{{ mix.description|raw }}</p>
@@ -24,5 +29,18 @@
         {% endfor %}
     </div>
 </div>
+
+<div class="comment-title">
+    <h1>{{ mix.comments|length }} comments</h1>
+    <h1>Community Rating: {{ mix.rating }}/5</h1>
+</div>
+
+{% for comment in mix.comments %}
+    <div class="comment-container">
+        <h1>{{ comment.user.username|default('Unknown') }}</h1>
+        {% if comment.rating != 0 %}<h2>Rating: {{ comment.rating }}/5</h2>{% endif %}
+        <p>{{ comment.comment|raw }}</p>
+    </div>
+{% endfor %}
 
 {% endblock %}
