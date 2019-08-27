@@ -25,7 +25,7 @@ class MixController extends Controller
         $term = $request->query('search');
 
         if ($term) {
-            $mixes = $this->mixRepository->search($term)->paginate(20);
+            $mixes = $this->mixRepository->search($term);
         } else {
             $mixes = $this->mixRepository->paginate(20);
         }
