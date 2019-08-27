@@ -20,9 +20,15 @@ class MixController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $mixes = $this->mixRepository->paginate(20);
+        $term = $request->query('search');
+
+        if ($term) {
+            $mixes = $this->mixRepository->search($term)->paginate(20);
+        } else {
+            $mixes = $this->mixRepository->paginate(20);
+        }
 
         return view('index', compact('mixes'));
     }
@@ -99,4 +105,5 @@ class MixController extends Controller
     {
         //
     }
+
 }
