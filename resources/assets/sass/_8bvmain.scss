@@ -43,6 +43,16 @@ a {
     text-decoration: none;
 }
 
+.results-container {
+    $total: length($colours);
+    @for $i from 1 through length($colours) {
+        & > a:nth-of-type(#{$total}n+#{$i}) > div:hover {
+            background-color: adjust-color(nth($colours,  $i), $alpha: -0.3);
+        }
+    }
+
+}
+
 .mixes-container {
     transition-duration: 0.5s;
     padding: 10px;
@@ -52,10 +62,6 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    &:hover {
-        background-color: rgba(255,0,0,0.5);
-    }
 
     .mix-title {
         min-width: 50%;

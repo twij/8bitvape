@@ -6,21 +6,23 @@
         <form><input type="text" name="search" class="search" value="{{ term }}" /> <button type="submit" class="btn-search">Search</button></form>
     </div>
 
+    <div class="results-container">
     {% for mix in mixes %}
         <a href="/mix/{{ mix.slug }}">
-        <div class="mixes-container">
-            <div class="mix-title">
-                <h1>{{ mix.name }}</h1>
-                <h2>{{ mix.user.username }}</h2>
+            <div class="mixes-container">
+                <div class="mix-title">
+                    <h1>{{ mix.name }}</h1>
+                    <h2>{{ mix.user.username }}</h2>
+                </div>
+                <div class="mix-icons">
+                    {% for flavour in mix.flavours %}
+                        <img src="/img/flavimg/{{ flavour.slug }}.png" alt="{{ flavour.name }}" />
+                    {% endfor %}
+                </div>
             </div>
-            <div class="mix-icons">
-                {% for flavour in mix.flavours %}
-                    <img src="/img/flavimg/{{ flavour.slug }}.png" alt="{{ flavour.name }}" />
-                {% endfor %}
-            </div>
-        </div>
         </a>
     {% endfor %}
+    </div>
 
     {{ mixes.onEachSide(3).links()|raw }}
 
