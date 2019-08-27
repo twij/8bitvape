@@ -20,7 +20,7 @@
 
 .page-container {
   position: relative;
-  min-height: 100vh;
+  min-height: 95vh;
 }
 
 .wrapper {
@@ -28,7 +28,6 @@
   width: calc(100% - 30px);
   margin: 0 auto;
   position: relative;
-  min-height: 100vh;
   padding-bottom: 2.5rem;
 }
 
@@ -83,6 +82,7 @@ a {
 .pagination {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   list-style-type: none;
   margin: 0;
   padding: 0;
