@@ -44,6 +44,7 @@ a {
 }
 
 .mixes-container {
+    transition-duration: 0.5s;
     padding: 10px;
     margin: 10px;
     background-color: #000;
@@ -51,6 +52,10 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &:hover {
+        background-color: rgba(255,0,0,0.5);
+    }
 
     .mix-title {
         min-width: 50%;
