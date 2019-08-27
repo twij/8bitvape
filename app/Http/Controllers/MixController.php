@@ -11,12 +11,20 @@ class MixController extends Controller
 {
     protected $mixRepository;
 
+    /**
+     * Constructor
+     *
+     * @param MixRepository $MixRepository Mixes Repository
+     */
     public function __construct(MixRepository $MixRepository)
     {
         $this->mixRepository = $MixRepository;
     }
+
     /**
      * Display a listing of the resource.
+     * 
+     * @param Request $request Request
      *
      * @return \Illuminate\Http\Response
      */
@@ -46,7 +54,8 @@ class MixController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request Request
+     * 
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -57,7 +66,8 @@ class MixController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  String  $slug Mix Slug
+     * @param String $slug Mix Slug
+     * 
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
@@ -75,7 +85,8 @@ class MixController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mix  $mix
+     * @param \App\Models\Mix $mix Mix
+     * 
      * @return \Illuminate\Http\Response
      */
     public function edit(Mix $mix)
@@ -86,8 +97,9 @@ class MixController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mix  $mix
+     * @param \Illuminate\Http\Request $request Request
+     * @param \App\Models\Mix          $mix     Mix
+     * 
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Mix $mix)
@@ -98,7 +110,8 @@ class MixController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mix  $mix
+     * @param \App\Models\Mix $mix Mix
+     * 
      * @return \Illuminate\Http\Response
      */
     public function destroy(Mix $mix)
