@@ -35,6 +35,16 @@ class Mix extends BaseModel
     }
 
     /**
+     * Average rating from comments
+     *
+     * @return Query Average rating
+     */
+    public function rating()
+    {
+        return $this->comments()->selectRaw('avg(rating) as rating');
+    }
+
+    /**
      * Scope enabled models
      *
      * @param Query $query Query
