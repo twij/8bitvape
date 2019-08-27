@@ -166,6 +166,22 @@ a {
     }
 }
 
+.page-container {
+    .title {
+        padding: 10px;
+        margin: 10px;
+        background-color: #000;
+        color: #fff;
+    }
+
+    .content {
+        padding: 10px;
+        margin: 10px;
+        background-color: #000;
+        color: #fff;
+    }
+}
+
 .footer {
     position: absolute;
     bottom: 0;

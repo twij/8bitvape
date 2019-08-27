@@ -30,3 +30,5 @@ Route::get('api/flavour/{slug}', 'IrcController@getFlavour');
 Route::get('api/comments/{slug}', 'IrcController@getComments');
 
 Route::get('temp/pixel', 'SvgController@create');
+
+Route::get('/{any}', 'PagesController@show')->where('any', '.*');

@@ -1,0 +1,18 @@
+{% extends 'layouts/default' %}
+
+{% block content %}
+
+<div class="page-container">
+    <div class="title">
+        <h1>{{ page.title }}</h1>
+    </div>
+    <div class="content">
+        {{ page.content|raw }}
+
+        {% if page.include %}
+            {% include page.include %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

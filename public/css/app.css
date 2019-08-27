@@ -311,6 +311,20 @@ a {
   line-height: 24px;
 }
 
+.page-container .title {
+  padding: 10px;
+  margin: 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+.page-container .content {
+  padding: 10px;
+  margin: 10px;
+  background-color: #000;
+  color: #fff;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
