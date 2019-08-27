@@ -227,6 +227,41 @@ a {
   margin: 3px;
 }
 
+.search-container {
+  padding: 10px;
+  margin: 10px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: right;
+}
+
+.search-container .search {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 2px 8px;
+  margin-right: 4px;
+}
+
+.search-container .btn-search {
+  transition-duration: 0.5s;
+  padding: 2px 8px;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid white;
+  font-weight: 500;
+}
+
+.search-container .btn-search:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
+}
+
 .mix-container {
   padding: 10px;
   margin: 10px;
@@ -265,6 +300,7 @@ a {
 
 .mix-container .mix-recipe .flavour .amount {
   margin-left: 10px;
+  font-weight: bold;
 }
 
 .comment-title {

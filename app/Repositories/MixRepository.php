@@ -37,13 +37,20 @@ class MixRepository extends Repository
      *
      * @param String $term Search Term
      *
-     * @return App\Mix Mix model
+     * @return Query Mix model
      */
-    public function search($term)
+    public function search($term, $orderBy = 'id')
     {
+        try {
+            $this->applyCriteria();
+        } catch (\Exception $e) {
+            
+        }
+
         return $this->model
             ->enabled()
-            ->where('name', 'like', '%'.$term.'%')
-            ->get();
+            ->orderBy($orderBy)
+            ->where('name', 'like', '%'.$term.'%');
     }
+
 }

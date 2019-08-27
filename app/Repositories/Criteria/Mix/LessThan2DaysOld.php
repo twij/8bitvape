@@ -1,8 +1,7 @@
 <?php namespace App\Repositories\Criteria\Mix;
 
 use App\Repositories\Criteria\Criteria;
-use Bosnadev\Repositories\Contracts\RepositoryInterface;
-use App\Repositories\Contracts\RepositoryInterface as Repository;
+use App\Repositories\Contracts\RepositoryInterface;
 
 class LessThan2DaysOld extends Criteria
 {
@@ -12,7 +11,7 @@ class LessThan2DaysOld extends Criteria
      * @param RepositoryInterface $repository
      * @return mixed
      */
-    public function apply($model, Repository $repository)
+    public function apply($model, RepositoryInterface $repository)
     {
         $query = $model->get();
         return $query;

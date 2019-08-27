@@ -1,6 +1,11 @@
 {% extends 'layouts/default' %}
 
 {% block content %}
+
+    <div class="search-container">
+        <form><input type="text" name="search" class="search" value="{{ term }}" /> <button type="submit" class="btn-search">Search</button></form>
+    </div>
+
     {% for mix in mixes %}
         <a href="/mix/{{ mix.slug }}">
         <div class="mixes-container">
@@ -18,5 +23,11 @@
     {% endfor %}
 
     {{ mixes.onEachSide(3).links()|raw }}
+
+    {% if mixes|length == 0 %}
+        <div class="mixes-container">
+            <h1>No results found.</h1>
+        </div>
+    {% endif %}
 
 {% endblock %}

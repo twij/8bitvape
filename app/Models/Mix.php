@@ -56,4 +56,5 @@ class Mix extends BaseModel
     {
         return $query->where('enabled', true);
     }
+
 }

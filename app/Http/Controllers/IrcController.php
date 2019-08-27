@@ -78,7 +78,7 @@ class IrcController extends Controller
      */
     public function searchMixes($term)
     {
-        $mixes = $this->mixRepository->search($term);
+        $mixes = $this->mixRepository->search($term)->get();
 
         if (!$mixes) {
             return response()->json(['error' => 'not found']);
@@ -107,7 +107,7 @@ class IrcController extends Controller
      */
     public function findMix($term)
     {
-        $mixes = $this->mixRepository->search($term);
+        $mixes = $this->mixRepository->search($term)->get();
 
         if (!count($mixes)) {
             return response()->json(['error' => 'not found']);

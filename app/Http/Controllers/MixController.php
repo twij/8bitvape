@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mix;
 use App\Repositories\MixRepository;
-use App\Repositories\Criteria\Mix\LessThan2DaysOld;
+use App\Repositories\Criteria\OrderBy;
 use Illuminate\Http\Request;
 
 class MixController extends Controller
@@ -31,14 +31,16 @@ class MixController extends Controller
     public function index(Request $request)
     {
         $term = $request->query('search');
+        $orderBy = $request->query('orderBy') ? $request->query('orderBy') : 'id';
+        $direction = $request->query('direction') ? $request->query('direction') : 'ASC';
 
         if ($term) {
-            $mixes = $this->mixRepository->search($term);
+            $mixes = $this->mixRepository->search($term)->pushCriteria(new OrderBy($orderBy, $direction))->paginate(20);
         } else {
-            $mixes = $this->mixRepository->paginate(20);
+            $mixes = $this->mixRepository->pushCriteria(new OrderBy($orderBy, $direction))->paginate(20);
         }
 
-        return view('index', compact('mixes'));
+        return view('index', compact('mixes', 'term'));
     }
 
     /**
