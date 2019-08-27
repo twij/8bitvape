@@ -27,6 +27,7 @@ class MixRepository extends Repository
     public function findBySlug($slug)
     {
         return $this->model->where('slug', $slug)
+            ->enabled()
             ->with(['user', 'flavours', 'flavours.company'])
             ->first();
     }
@@ -41,6 +42,7 @@ class MixRepository extends Repository
     public function search($term)
     {
         return $this->model
+            ->enabled()
             ->where('name', 'like', '%'.$term.'%')
             ->get();
     }

@@ -33,4 +33,16 @@ class Mix extends BaseModel
     {
         return $this->hasMany('App\Models\Comment', 'related_id');
     }
+
+    /**
+     * Scope enabled models
+     *
+     * @param Query $query Query
+     * 
+     * @return Query Scoped query
+     */
+    public function scopeEnabled($query)
+    {
+        return $query->where('enabled', true);
+    }
 }
