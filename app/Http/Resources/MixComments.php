@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Mix extends JsonResource
+class MixComments extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,15 +15,13 @@ class Mix extends JsonResource
     {
         return [
             'name' => $this->name,
-            'slug' => $this->slug,
             'user' => $this->user->username,
-            'description' => strip_tags($this->description),
-            'flavours' => $this->flavours->map(
-                function ($flavour) {
-                    return [ 
-                        'name' => $flavour->name,
-                        'company' => $flavour->company->name,
-                        'percentage' => $flavour->pivot->percentage
+            'comments' => $this->comments->map(
+                function ($comment) {
+                    return [
+                        'user' => $comment->user ? $comment->user->username : 'Unknown',
+                        'comment' => strip_tags($comment->comment),
+                        'rating' => $comment->rating
                     ];
                 }
             )

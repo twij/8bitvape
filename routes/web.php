@@ -15,19 +15,9 @@ use App\Http\Resources\MixCollection;
 */
 
 Route::get('/', 'MixController@index');
-
 Route::get('mix/{slug}', 'MixController@show');
 
 Auth::routes();
-
-//Route::get('api/mix/{id}', 'MixController@get');
-
-Route::get('api/mix/{slug}', 'IrcController@getMixBySlug');
-Route::get('api/mix/search/{term}', 'IrcController@searchMixes');
-Route::get('api/mix/find/{term}', 'IrcController@findMix');
-Route::get('api/user/{username}', 'IrcController@getUser');
-Route::get('api/flavour/{slug}', 'IrcController@getFlavour');
-Route::get('api/comments/{slug}', 'IrcController@getComments');
 
 Route::get('temp/pixel', 'SvgController@create');
 

@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('mix/{slug}', 'ApiController@getMixBySlug');
+Route::get('mix/search/{term}', 'ApiController@searchMixes');
+Route::get('mix/find/{term}', 'ApiController@findMix');
+Route::get('user/{username}', 'ApiController@getUser');
+Route::get('flavour/{slug}', 'ApiController@getFlavour');
+Route::get('comments/{slug}', 'ApiController@getComments');
