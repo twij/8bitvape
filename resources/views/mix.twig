@@ -37,14 +37,16 @@
 
 {% set comments = mix.comments().paginate(5) %}
 
-{% for comment in comments %}
-    <div class="comment-container">
-        <h1>{{ comment.user.username|default('Unknown') }}</h1>
-        {% if comment.rating != 0 %}<h2>Rating: {{ comment.rating }}/5</h2>{% endif %}
-        <p>{{ comment.comment|raw }}</p>
-    </div>
-{% endfor %}
+{% if comments|length > 0 %}
+    {% for comment in comments %}
+        <div class="comment-container">
+            <h1>{{ comment.user.username|default('Unknown') }}</h1>
+            {% if comment.rating != 0 %}<h2>Rating: {{ comment.rating }}/5</h2>{% endif %}
+            <p>{{ comment.comment|raw }}</p>
+        </div>
+    {% endfor %}
 
-{{ comments.links()|raw }}
+    {{ comments.links()|raw }}
+{% endif %}
 
 {% endblock %}
