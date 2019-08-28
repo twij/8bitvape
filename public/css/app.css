@@ -185,7 +185,18 @@ body {
 }
 
 a {
+  transition-duration: 0.5s;
   text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+a:visited {
+  color: white;
 }
 
 .results-container > a:nth-of-type(10n+1) > div:hover {
@@ -272,7 +283,7 @@ a {
 }
 
 .search-container {
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
   background-color: #000;
   color: #fff;
@@ -289,13 +300,18 @@ a {
   border: 1px solid white;
   border-radius: 3px;
   padding: 2px 8px;
-  margin-right: 4px;
+  margin: 5px;
+  background-image: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
 }
 
-@media screen and (max-width: 355px) {
+@media screen and (max-width: 500px) {
   .search-container .search {
     width: 100%;
-    margin-right: 0px;
+    max-width: 100%;
   }
 }
 
@@ -308,12 +324,7 @@ a {
   cursor: pointer;
   border: 1px solid white;
   font-weight: 500;
-}
-
-@media screen and (max-width: 355px) {
-  .search-container .btn-search {
-    margin-top: 7px;
-  }
+  margin: 5px;
 }
 
 .search-container .btn-search:hover {
@@ -430,6 +441,18 @@ a {
   height: 2.5rem;
   text-align: right;
   line-height: 22px;
+}
+
+.footer a {
+  color: black;
+}
+
+.footer a:hover {
+  color: black;
+}
+
+.footer a:visited {
+  color: black;
 }
 
 .pagination {

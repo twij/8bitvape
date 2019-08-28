@@ -3,7 +3,31 @@
 {% block content %}
 
     <div class="search-container">
-        <form><input type="text" name="search" class="search" value="{{ term }}" /> <button type="submit" class="btn-search">Search</button></form>
+        <form>
+            <select name="order" class="search">
+                <option value="">Sort By</option>
+                <option value="name" {% if input['order'] == 'name' %}selected{% endif %}>Name</option>
+                <option value="created_at" {% if input['order'] == 'created_at' %}selected{% endif %}>Date Created</option>
+            </select>
+            <select name="direction" class="search">
+                <option value="ASC" {% if input['direction'] == 'ASC' %}selected{% endif %}>Ascending</option>
+                <option value="DESC" {% if input['direction'] == 'DESC' %}selected{% endif %}>Descending</option>
+            </select>
+            <select name="contains" class="search">
+                <option value="">Contains Flavour</option>
+                {% for flavour_name, flavour_slug in flavours %}
+                    <option value="{{ flavour_slug }}" {% if flavour_slug == input['contains'] %}selected{% endif %}>{{ flavour_name|raw }}</option>
+                {% endfor %}
+            </select>
+            <select name="user" class="search">
+                <option value="">By User</option>
+                {% for username in users %}
+                    <option value="{{ username }}" {% if username == input['user'] %}selected{% endif %}>{{ username|raw }}</option>
+                {% endfor %}
+            </select>
+            <input type="text" name="search" class="search" value="{{ input['search'] }}" placeholder="Search">
+            <button type="submit" class="btn-search">Search</button>
+        </form>
     </div>
 
     <div class="results-container">

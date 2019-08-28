@@ -40,8 +40,20 @@ body {
 }
 
 a {
+    transition-duration: 0.5s;
     text-decoration: none;
+    color: white;
 }
+
+a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
 
 .results-container {
     $total: length($colours);
@@ -102,7 +114,7 @@ a {
 }
 
 .search-container {
-    padding: 10px;
+    padding: 5px;
     margin: 10px;
     background-color: #000;
     color: #fff;
@@ -118,10 +130,16 @@ a {
         border: 1px solid white;
         border-radius: 3px;
         padding: 2px 8px;
-        margin-right: 4px;
-        @media screen and (max-width: 355px) {
+        margin: 5px;
+        background-image: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        box-sizing: border-box;
+
+        @media screen and (max-width: 500px) {
             width: 100%;
-            margin-right: 0px;
+            max-width: 100%;
         }
     }
 
@@ -134,10 +152,7 @@ a {
         cursor: pointer;
         border: 1px solid white;
         font-weight: 500;
-
-        @media screen and (max-width: 355px) {
-            margin-top: 7px;
-        }
+        margin: 5px;
     }
 
     .btn-search:hover {
@@ -145,7 +160,6 @@ a {
         color: #000;
         border: 1px solid black;
     }
-
 
 }
 
@@ -259,4 +273,16 @@ a {
     height: 2.5rem;
     text-align: right;
     line-height: 22px;
+
+    a {
+        color: black;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    a:visited {
+        color: black;
+    }
 }

@@ -4,22 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Mix;
 use App\Repositories\MixRepository;
-use App\Repositories\Criteria\OrderBy;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Traits\MixCriteria;
+use App\Repositories\FlavourRepository;
+use App\Repositories\UserRepository;
 
 class MixController extends Controller
 {
+    use MixCriteria;
+
     protected $mixRepository;
+    protected $flavourRepository;
+    protected $userRepository;
+    protected $input;
 
     /**
      * Constructor
      *
-     * @param MixRepository $MixRepository Mixes Repository
+     * @param MixRepository     $MixRepository     Mixes Repository
+     * @param FlavourRepository $FlavourRepository Flavours Repository
+     * @param UserRepository    $userRepository    User Repository
      */
-    public function __construct(MixRepository $MixRepository)
-    {
+    public function __construct(
+        MixRepository $MixRepository,
+        FlavourRepository $flavourRepository,
+        UserRepository $userRepository
+    ) {
         $this->mixRepository = $MixRepository;
+        $this->flavourRepository = $flavourRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -31,25 +45,27 @@ class MixController extends Controller
      */
     public function index(Request $request)
     {
-        $term = $request->query('search');
-
-        $input = $request->validate(
+        $input = $this->input = array_filter($request->validate(
             [
-                'order' => Rule::in('name', 'slug')
+                'order' => [
+                    'nullable',
+                    Rule::in('name', 'created_at')
+                ],
+                'direction' => [
+                    'nullable',
+                    Rule::in('ASC', 'DESC')
+                ],
+                'contains' => 'nullable|exists:flavours,slug',
+                'user' => 'nullable|exists:users,username',
+                'search' => 'nullable|string'
             ]
-        );
-        
-        if ($input && $order = $input['order']) {
-            $this->mixRepository->pushCriteria(new OrderBy($order));
-        }
+        ));
 
-        if ($term) {
-            $mixes = $this->mixRepository->search($term)->paginate(20);
-        } else {
-            $mixes = $this->mixRepository->paginate(20);
-        }
+        $this->filter();
 
-        return view('index', compact('mixes', 'term'));
+        $mixes = $this->mixRepository->paginate(20);
+
+        return view('index', compact('mixes', 'input'));
     }
 
     /**
