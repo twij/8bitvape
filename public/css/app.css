@@ -317,7 +317,7 @@ a:visited {
 
 .search-container .btn-search {
   transition-duration: 0.5s;
-  padding: 2px 8px;
+  padding: 3px 8px;
   border-radius: 5px;
   background-color: #000;
   color: #fff;

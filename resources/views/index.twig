@@ -27,6 +27,9 @@
             </select>
             <input type="text" name="search" class="search" value="{{ input['search'] }}" placeholder="Search">
             <button type="submit" class="btn-search">Search</button>
+            {% if input|length > 0 %}
+                <a href="/"><button type="button" class="btn-search">Clear</button></a>
+            {% endif %}
         </form>
     </div>
 
