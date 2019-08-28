@@ -6,6 +6,7 @@ use App\Models\Mix;
 use App\Repositories\MixRepository;
 use App\Repositories\Criteria\OrderBy;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class MixController extends Controller
 {
@@ -31,6 +32,16 @@ class MixController extends Controller
     public function index(Request $request)
     {
         $term = $request->query('search');
+
+        $input = $request->validate(
+            [
+                'order' => Rule::in('name', 'slug')
+            ]
+        );
+        
+        if ($input && $order = $input['order']) {
+            $this->mixRepository->pushCriteria(new OrderBy($order));
+        }
 
         if ($term) {
             $mixes = $this->mixRepository->search($term)->paginate(20);

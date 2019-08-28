@@ -276,6 +276,9 @@ a {
   margin: 10px;
   background-color: #000;
   color: #fff;
+}
+
+.search-container form {
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
@@ -287,6 +290,13 @@ a {
   border-radius: 3px;
   padding: 2px 8px;
   margin-right: 4px;
+}
+
+@media screen and (max-width: 355px) {
+  .search-container .search {
+    width: 100%;
+    margin-right: 0px;
+  }
 }
 
 .search-container .btn-search {
@@ -419,6 +429,7 @@ a {
   padding-right: 10px;
   height: 2.5rem;
   text-align: right;
+  line-height: 22px;
 }
 
 .pagination {

@@ -1,7 +1,6 @@
 <?php namespace App\Repositories;
 
 use App\Repositories\Contracts\RepositoryInterface;
-use App\Repositories\Criteria\Mix\LessThan2DaysOld;
 use App\Repositories\Repository;
 
 class MixRepository extends Repository
@@ -41,11 +40,7 @@ class MixRepository extends Repository
      */
     public function search($term, $orderBy = 'id')
     {
-        try {
-            $this->applyCriteria();
-        } catch (\Exception $e) {
-            
-        }
+        $this->applyCriteria();
 
         return $this->model
             ->enabled()

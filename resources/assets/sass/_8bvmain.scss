@@ -106,10 +106,12 @@ a {
     margin: 10px;
     background-color: #000;
     color: #fff;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    //align-items: flex-end;
+
+    form {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
 
     .search {
         background-color: white;
@@ -117,6 +119,10 @@ a {
         border-radius: 3px;
         padding: 2px 8px;
         margin-right: 4px;
+        @media screen and (max-width: 355px) {
+            width: 100%;
+            margin-right: 0px;
+        }
     }
 
     .btn-search {
@@ -252,4 +258,5 @@ a {
     padding-right: 10px;
     height: 2.5rem;
     text-align: right;
+    line-height: 22px;
 }
