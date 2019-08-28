@@ -278,7 +278,7 @@ a {
   color: #fff;
   display: flex;
   justify-content: flex-end;
-  align-items: right;
+  flex-wrap: wrap;
 }
 
 .search-container .search {
@@ -298,6 +298,12 @@ a {
   cursor: pointer;
   border: 1px solid white;
   font-weight: 500;
+}
+
+@media screen and (max-width: 355px) {
+  .search-container .btn-search {
+    margin-top: 7px;
+  }
 }
 
 .search-container .btn-search:hover {
