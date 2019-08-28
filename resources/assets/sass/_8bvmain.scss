@@ -93,9 +93,13 @@ a {
         margin-left: 10px;
 
         img {
-            width: 26px;
-            height: 26px;
+            width: 30px;
+            height: 30px;
             margin: 3px;
+            -webkit-filter: drop-shadow(2px 1px 3px rgba(255, 255, 255, 0.3))
+                  drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.3));
+            filter: drop-shadow(2px 1px 3px rgba(255, 255, 255, 0.3)) 
+                    drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.3));
         }
     }
 }
@@ -164,9 +168,13 @@ a {
         align-items: center;
     
         img {
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
             margin-right: 10px;
+            -webkit-filter: drop-shadow(2px 1px 3px rgba(255, 255, 255, 0.3))
+                  drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.3));
+            filter: drop-shadow(2px 1px 3px rgba(255, 255, 255, 0.3)) 
+                    drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.3));
         }
         
         .amount {
