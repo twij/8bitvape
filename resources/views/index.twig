@@ -6,8 +6,8 @@
         <form>
             <select name="order" class="search">
                 <option value="">Sort By</option>
-                <option value="name" {% if input['order'] == 'name' %}selected{% endif %}>Name</option>
-                <option value="created_at" {% if input['order'] == 'created_at' %}selected{% endif %}>Date Created</option>
+                <option value="name" {% if input['order'] == 'name' %}selected{% endif %}>Sort: Name</option>
+                <option value="created_at" {% if input['order'] == 'created_at' %}selected{% endif %}>Sort: Date Created</option>
             </select>
             <select name="direction" class="search">
                 <option value="ASC" {% if input['direction'] == 'ASC' %}selected{% endif %}>Ascending</option>
