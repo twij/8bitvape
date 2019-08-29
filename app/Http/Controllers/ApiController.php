@@ -8,6 +8,7 @@ use App\Http\Resources\Mix as MixResource;
 use App\Http\Resources\User as UserResource;
 use App\Http\Resources\Flavour as FlavourResource;
 use App\Http\Resources\MixComments as MixCommentsResource;
+use Illuminate\Http\JsonResponse;
 
 class ApiController extends Controller
 {
@@ -43,7 +44,7 @@ class ApiController extends Controller
      *
      * @return Illuminate\Http\JsonResponse Json encoded mix
      */
-    public function getMixBySlug($slug)
+    public function getMixBySlug(String $slug): JsonResponse
     {
         if ($mix = $this->mixRepository->findBySlug($slug)) {
             return response()->json(new MixResource($mix));
@@ -59,9 +60,11 @@ class ApiController extends Controller
      *
      * @return Illuminate\Http\JsonResponse Json encoded search results
      */
-    public function searchMixes($term)
+    public function searchMixes(String $term): JsonResponse
     {
-        if ($mixes = $this->mixRepository->search($term)->get()) {
+        $mixes = $this->mixRepository->search($term)->get();
+
+        if ($mixes && $mixes->count() > 0) {
             return response()->json(
                 $mixes->map(
                     function ($item, $key) {
@@ -84,7 +87,7 @@ class ApiController extends Controller
      *
      * @return Illuminate\Http\JsonResponse Json encoded mix
      */
-    public function findMix($term)
+    public function findMix(String $term): JsonResponse
     {
         if (count($mixes = $this->mixRepository->search($term)->get())) {
             return response()->json(new MixResource($mixes->first()));
@@ -99,7 +102,7 @@ class ApiController extends Controller
      *
      * @return Illuminate\Http\JsonResponse Json encoded user info
      */
-    public function getUser($username)
+    public function getUser(String $username): JsonResponse
     {
         if ($user = $this->userRepository->findByUsername($username)) {
             return response()->json(new UserResource($user));
@@ -114,7 +117,7 @@ class ApiController extends Controller
      *
      * @return Illuminate\Http\JsonResponse Json encoded flavour info
      */
-    public function getFlavour($slug)
+    public function getFlavour(String $slug): JsonResponse
     {
         if ($flavour = $this->flavourRepository->findBySlug($slug)) {
             return response()->json(new FlavourResource($flavour));
@@ -129,7 +132,7 @@ class ApiController extends Controller
      *
      * @return Illuminate\Http\JsonResponse Json encoded comments
      */
-    public function getComments($slug)
+    public function getComments(String $slug): JsonResponse
     {
         if ($mix = $this->mixRepository->findBySlug($slug)) {
             return response()->json(new MixCommentsResource($mix));
