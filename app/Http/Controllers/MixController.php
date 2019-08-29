@@ -45,21 +45,23 @@ class MixController extends Controller
      */
     public function index(Request $request)
     {
-        $input = $this->input = array_filter($request->validate(
-            [
-                'order' => [
-                    'nullable',
-                    Rule::in('name', 'created_at')
-                ],
-                'direction' => [
-                    'nullable',
-                    Rule::in('ASC', 'DESC')
-                ],
-                'contains' => 'nullable|exists:flavours,slug',
-                'user' => 'nullable|exists:users,username',
-                'search' => 'nullable|string'
-            ]
-        ));
+        $input = $this->input = array_filter(
+            $request->validate(
+                [
+                    'order' => [
+                        'nullable',
+                        Rule::in('name', 'created_at')
+                    ],
+                    'direction' => [
+                        'nullable',
+                        Rule::in('ASC', 'DESC')
+                    ],
+                    'contains' => 'nullable|exists:flavours,slug',
+                    'user' => 'nullable|exists:users,username',
+                    'search' => 'nullable|string'
+                ]
+            )
+        );
 
         $this->filter();
 

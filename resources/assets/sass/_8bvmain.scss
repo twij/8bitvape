@@ -60,13 +60,13 @@ a:visited {
     @for $i from 1 through length($colours) {
         & > a:nth-of-type(#{$total}n+#{$i}) > div:hover {
             background-color: adjust-color(nth($colours,  $i), $alpha: -0.3);
+            transition-duration: 0.5s;
         }
     }
 
 }
 
 .mixes-container {
-    transition-duration: 0.5s;
     padding: 10px;
     margin: 10px;
     background-color: #000;

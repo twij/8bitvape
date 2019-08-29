@@ -201,46 +201,55 @@ a:visited {
 
 .results-container > a:nth-of-type(10n+1) > div:hover {
   background-color: rgba(52, 144, 220, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+2) > div:hover {
   background-color: rgba(101, 116, 205, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+3) > div:hover {
   background-color: rgba(149, 97, 226, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+4) > div:hover {
   background-color: rgba(246, 109, 155, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+5) > div:hover {
   background-color: rgba(227, 52, 47, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+6) > div:hover {
   background-color: rgba(246, 153, 63, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+7) > div:hover {
   background-color: rgba(255, 237, 74, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+8) > div:hover {
   background-color: rgba(56, 193, 114, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+9) > div:hover {
   background-color: rgba(77, 192, 181, 0.7);
+  transition-duration: 0.5s;
 }
 
 .results-container > a:nth-of-type(10n+10) > div:hover {
   background-color: rgba(108, 178, 235, 0.7);
+  transition-duration: 0.5s;
 }
 
 .mixes-container {
-  transition-duration: 0.5s;
   padding: 10px;
   margin: 10px;
   background-color: #000;

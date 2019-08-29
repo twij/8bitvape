@@ -3,6 +3,7 @@
 use Illuminate\View\View;
 use App\Repositories\FlavourRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Cache;
 
 class FilterComposer
 {
@@ -27,15 +28,29 @@ class FilterComposer
     /**
      * Bind data to the view.
      *
-     * @param  View  $view
+     * @param View $view View template
+     * 
      * @return void
      */
     public function compose(View $view)
     {
-        $view->with(
-            'users', $this->userRepository->all()->pluck('username')
-        )->with(
-            'flavours', $this->flavourRepository->all()->pluck('slug', 'name')->sort()
+        $usernames = Cache::remember(
+            '_usernames',
+            60 * 60 * 12,
+            function () {
+                return $this->userRepository->all()->pluck('username');
+            }
         );
+
+        $flavours = Cache::remember(
+            '_flavours',
+            60 * 60 * 12,
+            function () {
+                return $this->flavourRepository
+                    ->all()->pluck('slug', 'name')->sort();
+            }
+        );
+
+        $view->with('users', $usernames)->with('flavours', $flavours);
     }
 }
