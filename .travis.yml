@@ -13,4 +13,4 @@ before_script:
   
 script:
   - php artisan code:analyse
-#  - vendor/bin/phpunit --coverage-text
+  - vendor/bin/phpunit --coverage-text
