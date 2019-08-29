@@ -19,8 +19,8 @@ class SearchName extends Criteria
     }
 
     /**
-     * @param Model               $model      Model 
-     * @param RepositoryInterface $repository Repository
+     * @param \App\Models\BaseModel $model      Model 
+     * @param RepositoryInterface   $repository Repository
      * 
      * @return mixed
      */

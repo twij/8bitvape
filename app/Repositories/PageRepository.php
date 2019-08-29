@@ -1,7 +1,7 @@
 <?php namespace App\Repositories;
 
-use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Repository;
+use App\Models\Page;
 
 class PageRepository extends Repository
 {
@@ -21,9 +21,9 @@ class PageRepository extends Repository
      *
      * @param String $slug Page slug
      * 
-     * @return App\Models\PageModel
+     * @return \App\Models\BaseModel
      */
-    public function findBySlug($slug)
+    public function findBySlug(String $slug): \App\Models\BaseModel
     {
         return $this->model->public()->where('slug', $slug)->first();
     }
@@ -33,9 +33,9 @@ class PageRepository extends Repository
      *
      * @param String $path Page path
      * 
-     * @return App\Models\PageModel
+     * @return \App\Models\BaseModel
      */
-    public function findByPath($path)
+    public function findByPath(String $path): \App\Models\BaseModel
     {
         return $this->model->public()->where('path', $path)->first();
     }

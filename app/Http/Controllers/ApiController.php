@@ -42,7 +42,7 @@ class ApiController extends Controller
      *
      * @param String $slug Mix slug
      *
-     * @return Illuminate\Http\JsonResponse Json encoded mix
+     * @return JsonResponse Json encoded mix
      */
     public function getMixBySlug(String $slug): JsonResponse
     {
@@ -58,7 +58,7 @@ class ApiController extends Controller
      *
      * @param String $term Search query
      *
-     * @return Illuminate\Http\JsonResponse Json encoded search results
+     * @return JsonResponse Json encoded search results
      */
     public function searchMixes(String $term): JsonResponse
     {
@@ -85,7 +85,7 @@ class ApiController extends Controller
      *
      * @param String $term Search Term
      *
-     * @return Illuminate\Http\JsonResponse Json encoded mix
+     * @return JsonResponse Json encoded mix
      */
     public function findMix(String $term): JsonResponse
     {
@@ -100,7 +100,7 @@ class ApiController extends Controller
      *
      * @param String $username Username string
      *
-     * @return Illuminate\Http\JsonResponse Json encoded user info
+     * @return JsonResponse Json encoded user info
      */
     public function getUser(String $username): JsonResponse
     {
@@ -115,7 +115,7 @@ class ApiController extends Controller
      *
      * @param String $slug Flavour slug
      *
-     * @return Illuminate\Http\JsonResponse Json encoded flavour info
+     * @return JsonResponse Json encoded flavour info
      */
     public function getFlavour(String $slug): JsonResponse
     {
@@ -130,7 +130,7 @@ class ApiController extends Controller
      *
      * @param String $slug Mix slug
      *
-     * @return Illuminate\Http\JsonResponse Json encoded comments
+     * @return JsonResponse Json encoded comments
      */
     public function getComments(String $slug): JsonResponse
     {

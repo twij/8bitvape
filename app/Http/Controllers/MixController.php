@@ -22,16 +22,16 @@ class MixController extends Controller
     /**
      * Constructor
      *
-     * @param MixRepository     $MixRepository     Mixes Repository
-     * @param FlavourRepository $FlavourRepository Flavours Repository
+     * @param MixRepository     $mixRepository     Mixes Repository
+     * @param FlavourRepository $flavourRepository Flavours Repository
      * @param UserRepository    $userRepository    User Repository
      */
     public function __construct(
-        MixRepository $MixRepository,
+        MixRepository $mixRepository,
         FlavourRepository $flavourRepository,
         UserRepository $userRepository
     ) {
-        $this->mixRepository = $MixRepository;
+        $this->mixRepository = $mixRepository;
         $this->flavourRepository = $flavourRepository;
         $this->userRepository = $userRepository;
     }
@@ -41,9 +41,9 @@ class MixController extends Controller
      * 
      * @param Request $request Request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\View\View
     {
         $input = $this->input = array_filter(
             $request->validate(
@@ -97,9 +97,9 @@ class MixController extends Controller
      *
      * @param String $slug Mix Slug
      * 
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function show($slug)
+    public function show(String $slug): \Illuminate\View\View
     {
         $mix = $this->mixRepository->findBySlug($slug);
 

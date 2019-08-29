@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Mix;
+use App\Models\Mix;
 use Faker\Generator as Faker;
 
 $factory->define(Mix::class, function (Faker $faker) {

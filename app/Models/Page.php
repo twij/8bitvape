@@ -7,7 +7,7 @@ class Page extends Model
     /**
      * User relationship
      *
-     * @return Relationship User
+     * @return \Illuminate\Database\Eloquent\Relations\Relation User
      */
     public function user()
     {
@@ -17,9 +17,9 @@ class Page extends Model
     /**
      * Scope enabled pages
      *
-     * @param Query $query Query
+     * @param \Illuminate\Database\Query\Builder $query Query
      * 
-     * @return Query Scoped query
+     * @return \Illuminate\Database\Query\Builder Scoped query
      */
     public function scopeEnabled($query)
     {
@@ -29,12 +29,12 @@ class Page extends Model
     /**
      * Scope public pages
      *
-     * @param Query $query Query
+     * @param \Illuminate\Database\Query\Builder $query Query
      * 
-     * @return Query Scoped query
+     * @return \Illuminate\Database\Query\Builder Scoped query
      */
     public function scopePublic($query)
     {
-        return $query->enabled()->where('public', 1);
+        return $query->where('enabled', 1)->where('public', 1);
     }
 }

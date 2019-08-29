@@ -7,7 +7,7 @@ class Flavour extends BaseModel
     /**
      * Return related mixes
      *
-     * @return Relationship Mixes
+     * @return \Illuminate\Database\Eloquent\Relations\Relation Mixes
      */
     public function mixes()
     {
@@ -17,7 +17,7 @@ class Flavour extends BaseModel
     /**
      * Return related companies
      *
-     * @return Relationship Companies
+     * @return \Illuminate\Database\Eloquent\Relations\Relation Companies
      */
     public function company()
     {

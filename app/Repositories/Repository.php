@@ -17,7 +17,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     private $app;
 
     /**
-     * @var
+     * @var Mixed
      */
     protected $model;
 
@@ -32,9 +32,10 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     protected $skipCriteria = false;
 
     /**
-     * @param App $app
-     * @param Collection $collection
-     * @throws App\Repositories\Exceptions\RepositoryException
+     * @param App        $app        Application
+     * @param Collection $collection Collection
+     * 
+     * @throws RepositoryException Exception 
      */
     public function __construct(App $app, Collection $collection)
     {
@@ -82,9 +83,10 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     }
 
     /**
-     * @param array $data
-     * @param $id
-     * @param string $attribute
+     * @param array   $data      Data
+     * @param Integer $id        Id
+     * @param string  $attribute Attribute
+     * 
      * @return mixed
      */
     public function update(array $data, $id, $attribute="id")
@@ -93,7 +95,8 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     }
 
     /**
-     * @param $id
+     * @param Integer $id Id
+     * 
      * @return mixed
      */
     public function delete($id)
@@ -102,9 +105,10 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     }
 
     /**
-     * @param $id
-     * @param array $columns
-     * @return mixed
+     * @param mixed $id      ID
+     * @param array $columns Column
+     * 
+     * @return mixed Result
      */
     public function find($id, $columns = array('*'))
     {
@@ -113,9 +117,10 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     }
 
     /**
-     * @param $attribute
-     * @param $value
-     * @param array $columns
+     * @param mixed $attribute Attribute
+     * @param mixed $value     Value
+     * @param array $columns   Columns
+     * 
      * @return mixed
      */
     public function findBy($attribute, $value, $columns = array('*'))
@@ -126,6 +131,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
 
     /**
      * @return \Illuminate\Database\Eloquent\Builder
+     * 
      * @throws RepositoryException
      */
     public function makeModel()

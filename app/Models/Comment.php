@@ -9,7 +9,7 @@ class Comment extends BaseModel
     /**
      * Return related user
      *
-     * @return Relationship User
+     * @return \Illuminate\Database\Eloquent\Relations\Relation User
      */
     public function user()
     {
@@ -19,7 +19,7 @@ class Comment extends BaseModel
     /**
      * Return related mix
      *
-     * @return Relationship Mix
+     * @return \Illuminate\Database\Eloquent\Relations\Relation Mix
      */
     public function mix()
     {

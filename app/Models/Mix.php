@@ -8,7 +8,7 @@ class Mix extends BaseModel
     /**
      * Return related flavours
      *
-     * @return Relationship Flavours
+     * @return \Illuminate\Database\Eloquent\Relations\Relation Flavours
      */
     public function flavours()
     {
@@ -18,7 +18,7 @@ class Mix extends BaseModel
     /**
      * Return related user
      *
-     * @return Relationship User
+     * @return \Illuminate\Database\Eloquent\Relations\Relation User
      */
     public function user()
     {
@@ -28,7 +28,7 @@ class Mix extends BaseModel
     /**
      * Return related comments
      *
-     * @return Relationship Comments
+     * @return \Illuminate\Database\Eloquent\Relations\Relation Comments
      */
     public function comments()
     {
@@ -38,19 +38,19 @@ class Mix extends BaseModel
     /**
      * Average rating from comments
      *
-     * @return Query Average rating
+     * @return Float Average rating
      */
     public function getRatingAttribute()
     {
-        return number_format($this->comments->avg('rating'), 1);
+        return (float) number_format($this->comments->avg('rating'), 1);
     }
 
     /**
      * Scope enabled models
      *
-     * @param Query $query Query
+     * @param \Illuminate\Database\Query\Builder $query Query
      * 
-     * @return Query Scoped query
+     * @return \Illuminate\Database\Query\Builder Scoped query
      */
     public function scopeEnabled($query)
     {

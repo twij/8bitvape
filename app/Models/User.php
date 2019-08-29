@@ -43,7 +43,7 @@ class User extends Authenticatable
     /**
      * Return related mixes
      *
-     * @return Relationship Mixes
+     * @return \Illuminate\Database\Eloquent\Relations\Relation Mixes
      */
     public function mixes()
     {
@@ -51,11 +51,11 @@ class User extends Authenticatable
     }
 
     /**
-     * Return related user
+     * Return related comments
      *
-     * @return Relationship User
+     * @return \Illuminate\Database\Eloquent\Relations\Relation Comments
      */
-    public function user()
+    public function comments()
     {
         return $this->hasMany('App\Models\Comment');
     }

@@ -11,17 +11,17 @@ class CreatedByUser extends Criteria
     /**
      * Constructor
      * 
-     * @param App\User $user User
+     * @param \App\Models\User $user User
      */
-    public function __construct (
+    public function __construct(
         User $user
     ) {
         $this->user = $user;
     }
 
     /**
-     * @param Model               $model      Model 
-     * @param RepositoryInterface $repository Repository
+     * @param \App\Models\BaseModel $model      Model 
+     * @param RepositoryInterface   $repository Repository
      * 
      * @return mixed
      */

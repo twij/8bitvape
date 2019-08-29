@@ -23,10 +23,10 @@ class OrderBy extends Criteria
     }
 
     /**
-     * @param Model               $model      Model 
-     * @param RepositoryInterface $repository Repository
+     * @param \App\Models\BaseModel $model      Model 
+     * @param RepositoryInterface   $repository Repository
      * 
-     * @return mixed
+     * @return mixed Query
      */
     public function apply($model, RepositoryInterface $repository)
     {

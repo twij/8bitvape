@@ -10,7 +10,13 @@ class ContainsFlavour extends Criteria
     protected $flavour;
     protected $flavourRepository;
 
-    public function __construct (
+    /**
+     * Constructor
+     *
+     * @param FlavourRepository $flavourRepository Repository
+     * @param String            $flavour           Model
+     */
+    public function __construct(
         FlavourRepository $flavourRepository,
         $flavour
     ) {
@@ -19,8 +25,8 @@ class ContainsFlavour extends Criteria
     }
 
     /**
-     * @param Model               $model      Model 
-     * @param RepositoryInterface $repository Repository
+     * @param \App\Models\BaseModel $model      Model 
+     * @param RepositoryInterface   $repository Repository
      * 
      * @return mixed
      */

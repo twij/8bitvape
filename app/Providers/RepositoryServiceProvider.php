@@ -15,17 +15,29 @@ class RepositoryServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface", function () {
-            return new MixRepository(new Mix());
-        });
-        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface", function () {
-            return new CompanyRepository(new Company());
-        });
-        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface", function () {
-            return new UserRepository(new User());
-        });
-        $this->app->singleton("App\Repositories\Contracts\RepositoryInterface", function () {
-            return new FlavourRepository(new Flavour());
-        });
+        $this->app->singleton(
+            "App\Repositories\Contracts\RepositoryInterface",
+            function () {
+                return new MixRepository(app(), collect(new Mix()));
+            }
+        );
+        $this->app->singleton(
+            "App\Repositories\Contracts\RepositoryInterface",
+            function () {
+                return new CompanyRepository(app(), collect(new Company()));
+            }
+        );
+        $this->app->singleton(
+            "App\Repositories\Contracts\RepositoryInterface",
+            function () {
+                return new UserRepository(app(), collect(new User()));
+            }
+        );
+        $this->app->singleton(
+            "App\Repositories\Contracts\RepositoryInterface",
+            function () {
+                return new FlavourRepository(app(), collect(new Flavour()));
+            }
+        );
     }
 }

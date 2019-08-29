@@ -26,9 +26,9 @@ class PagesController extends Controller
      *
      * @param String $path Page path
      * 
-     * @return \Illuminate\Http\Response Page view
+     * @return \Illuminate\View\View Page view
      */
-    public function show($path)
+    public function show(String $path) : \Illuminate\View\View
     {
         $page = $this->pageRepository->findByPath($path);
         
