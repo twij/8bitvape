@@ -263,6 +263,53 @@ a:visited {
     }
 }
 
+.warning {
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid darken(red, 15%);;
+    background-color: lighten(red, 40%);
+    color: darken(red, 15%);
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.endpoint {
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid darken(green, 15%);;
+    background-color: lighten(green, 50%);
+    color: darken(green, 15%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        padding: 0;
+        margin: 10px;
+        width: 40%;
+    }
+
+    p:nth-child(1) {
+        width: 20%;
+    }
+
+    @media screen and (max-width: 550px) {
+        display: block;
+
+        p {
+            width: 100%;
+        }
+
+        p:nth-child(1) {
+            width: 100%;
+        }
+    }
+
+}
+
 .footer {
     position: absolute;
     bottom: 0;

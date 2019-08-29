@@ -431,6 +431,54 @@ a:visited {
   color: #fff;
 }
 
+.warning {
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid #b30000;
+  background-color: #ffcccc;
+  color: #b30000;
+}
+
+.warning p {
+  padding: 0;
+  margin: 0;
+}
+
+.endpoint {
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid #003400;
+  background-color: #80ff80;
+  color: #003400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.endpoint p {
+  padding: 0;
+  margin: 10px;
+  width: 40%;
+}
+
+.endpoint p:nth-child(1) {
+  width: 20%;
+}
+
+@media screen and (max-width: 550px) {
+  .endpoint {
+    display: block;
+  }
+
+  .endpoint p {
+    width: 100%;
+  }
+
+  .endpoint p:nth-child(1) {
+    width: 100%;
+  }
+}
+
 .footer {
   position: absolute;
   bottom: 0;
