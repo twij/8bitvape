@@ -21,9 +21,9 @@ class PageRepository extends Repository
      *
      * @param String $slug Page slug
      * 
-     * @return \App\Models\BaseModel
+     * @return \App\Models\Page
      */
-    public function findBySlug(String $slug): \App\Models\BaseModel
+    public function findBySlug(String $slug): ?\App\Models\Page
     {
         return $this->model->public()->where('slug', $slug)->first();
     }
@@ -33,9 +33,9 @@ class PageRepository extends Repository
      *
      * @param String $path Page path
      * 
-     * @return \App\Models\BaseModel
+     * @return \App\Models\Page
      */
-    public function findByPath(String $path): \App\Models\BaseModel
+    public function findByPath(String $path): ?\App\Models\Page
     {
         return $this->model->public()->where('path', $path)->first();
     }

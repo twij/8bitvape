@@ -23,7 +23,7 @@ class FlavourRepository extends Repository
      *
      * @return \App\Models\BaseModel Model
      */
-    public function findBySlug(String $slug): \App\Models\BaseModel
+    public function findBySlug(String $slug): ?\App\Models\BaseModel
     {
         return $this->model->where('slug', $slug)->first();
     }

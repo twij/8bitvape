@@ -21,9 +21,9 @@ class UserRepository extends Repository
      *
      * @param String $username Username
      *
-     * @return \App\Models\BaseModel User model
+     * @return \App\Models\User User model
      */
-    public function findByUsername(String $username): \App\Models\BaseModel
+    public function findByUsername(String $username): ?\App\Models\User
     {
         return $this->model->where('username', $username)->with(['mixes'])->first();
     }
@@ -33,9 +33,9 @@ class UserRepository extends Repository
      *
      * @param String $term Search term
      *
-     * @return \App\Models\BaseModel User model
+     * @return \App\Models\User User model
      */
-    public function search(String $term): \App\Models\BaseModel
+    public function search(String $term): ?\App\Models\User
     {
         return $this->model->where('username', 'like', '%'.$term.'%')->first();
     }
