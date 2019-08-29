@@ -2,10 +2,13 @@
 
 namespace Tests\Feature\Api;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ApiSearchNameTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test searching a name via api
      *
@@ -13,6 +16,8 @@ class ApiSearchNameTest extends TestCase
      */
     public function testSearchName()
     {
+        $this->seed();
+        
         $response = $this->get('/api/mix/search/space');
 
         $response
@@ -21,7 +26,7 @@ class ApiSearchNameTest extends TestCase
                 ["0" => ["name" => "Tropical Space Pirate"]]
             );
 
-        $response = $this->get('/api/mix/search/*&^$*&');
+        $response = $this->get('/api/mix/search/invalid');
 
         $response
             ->assertStatus(200)

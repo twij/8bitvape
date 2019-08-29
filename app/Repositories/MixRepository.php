@@ -23,7 +23,7 @@ class MixRepository extends Repository
      *
      * @return \App\Models\Mix Mix Model
      */
-    public function findBySlug(String $slug): \App\Models\Mix
+    public function findBySlug(String $slug): ?\App\Models\Mix
     {
         return $this->model->where('slug', $slug)
             ->enabled()
@@ -37,7 +37,7 @@ class MixRepository extends Repository
      * @param String $term Search Term
      *
      */
-    public function search(String $term, String $orderBy = 'id'): \App\Models\Mix
+    public function search(String $term, String $orderBy = 'id')
     {
         $this->applyCriteria();
 

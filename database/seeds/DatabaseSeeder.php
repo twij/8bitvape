@@ -11,17 +11,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UsersTableSeeder::class,
-            CompanyTypeTableSeeder::class,
-            ProductTypeTableSeeder::class,
-            //BaseIngredientTableSeeder::class,
-            FlavourCompaniesTableSeeder::class,
-            FlavourTypesTableSeeder::class,
-            FlavourTableSeeder::class,
-            MixTypesTableSeeder::class,
-            CommentsTableSeeder::class,
-            MixesTableSeeder::class
-        ]);
+        if (App::environment('local')) {
+            $this->call([
+                UsersTableSeeder::class,
+                CompanyTypeTableSeeder::class,
+                ProductTypeTableSeeder::class,
+                BaseIngredientTableSeeder::class,
+                FlavourCompaniesTableSeeder::class,
+                FlavourTypesTableSeeder::class,
+                FlavourTableSeeder::class,
+                MixTypesTableSeeder::class,
+                CommentsTableSeeder::class,
+                MixesTableSeeder::class
+            ]);
+        }
+        if (App::environment('testing')) {
+            $this->call([
+                \Database\Seeds\Tests\UsersTableSeeder::class,
+                \Database\Seeds\Tests\FlavourCompaniesTableSeeder::class,
+                \Database\Seeds\Tests\FlavourTableSeeder::class,
+                \Database\Seeds\Tests\MixesTableSeeder::class
+            ]);
+        }
     }
 }
