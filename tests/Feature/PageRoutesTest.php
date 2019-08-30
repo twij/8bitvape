@@ -11,15 +11,23 @@ class PageRoutesTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * A basic feature test example.
+     * Test route status
      *
      * @return void
      */
-    public function testExample()
+    public function testRoutes()
     {
         $this->seed();
 
         $response = $this->get('/');
+
+        $response->assertStatus(200);
+
+        $response = $this->get('/?search=space');
+
+        $response->assertStatus(200);
+
+        $response = $this->get('/?user=barf');
 
         $response->assertStatus(200);
 

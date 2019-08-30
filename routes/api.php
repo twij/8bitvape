@@ -21,5 +21,6 @@ Route::get('mix/{slug}', 'ApiController@getMixBySlug');
 Route::get('mix/search/{term}', 'ApiController@searchMixes');
 Route::get('mix/find/{term}', 'ApiController@findMix');
 Route::get('user/{username}', 'ApiController@getUser');
+Route::get('user/find/{term}', 'ApiController@findUser');
 Route::get('flavour/{slug}', 'ApiController@getFlavour');
 Route::get('comments/{slug}', 'ApiController@getComments');

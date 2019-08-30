@@ -12,18 +12,17 @@ class FlavourCompaniesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('flavour_companies')->truncate();
-
-        $data = [
-            [
-                'name' => 'Cupcake World',
-                'slug' => str_slug('Cupcake World', '-'),
-                'user_id' => 1,
-                'company_type' => 1
-            ],
-        ];
-        
-        DB::table('flavour_companies')->insert($data);
-
+        if (\App::environment('testing')) {
+            $data = [
+                [
+                    'name' => 'Cupcake World',
+                    'slug' => str_slug('Cupcake World', '-'),
+                    'user_id' => 1,
+                    'company_type' => 1
+                ],
+            ];
+            
+            DB::table('flavour_companies')->insert($data);
+        }
     }
 }

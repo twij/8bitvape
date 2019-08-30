@@ -12,14 +12,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            'email' => 'barf@8bv.uk',
-            'username' => 'barf',
-            'password' => bcrypt('lolnicepassword'),
-            'type' => 'admin'
-        ];
+        if (\App::environment('testing')) {
+            $data = [
+                'email' => 'barf@8bv.uk',
+                'username' => 'barf',
+                'password' => bcrypt('lolnicepassword'),
+                'type' => 'admin'
+            ];
 
-        DB::table('users')->insert($data);
-
+            DB::table('users')->insert($data);
+        }
     }
 }
