@@ -31,8 +31,16 @@ class PageRoutesTest extends TestCase
 
         $response->assertStatus(200);
 
+        $response = $this->get('/?order=name&direction=DESC&contains=passionfruit&user=barf&search=test');
+
+        $response->assertStatus(200);
+
         $response = $this->get('/mix/spacepirate');
 
         $response->assertStatus(200);
+
+        $response = $this->get('/mix/invalid');
+
+        $response->assertStatus(404);
     }
 }

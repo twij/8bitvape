@@ -9,10 +9,10 @@ class Flavour extends BaseModel
      *
      * @return \Illuminate\Database\Eloquent\Relations\Relation Mixes
      */
-    public function mixes()
-    {
-        return $this->belongsToMany('App\Models\Mix');
-    }
+    // public function mixes()
+    // {
+    //     return $this->belongsToMany('App\Models\Mix');
+    // }
 
     /**
      * Return related companies
