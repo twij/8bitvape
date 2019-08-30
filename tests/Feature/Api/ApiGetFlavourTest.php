@@ -2,10 +2,13 @@
 
 namespace Tests\Feature\Api;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ApiGetFlavourTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test getting a flavour via api
      *
@@ -13,15 +16,17 @@ class ApiGetFlavourTest extends TestCase
      */
     public function testGetFlavour()
     {
-        $response = $this->get('/api/flavour/spacepirate');
+        $this->seed();
+
+        $response = $this->get('/api/flavour/lime');
 
         $response
             ->assertStatus(200)
             ->assertJson(
-                ["name" => "Tropical Space Pirate"]
+                ["name" => "Lime"]
             );
 
-        $response = $this->get('/api/flavour/iuhsdiuhsdiufh');
+        $response = $this->get('/api/flavour/invalid');
 
         $response
             ->assertStatus(200)

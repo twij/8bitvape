@@ -3,9 +3,12 @@
 namespace Tests\Feature\Api;
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ApiGetMixTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test getting a mix from api
      *
@@ -13,6 +16,8 @@ class ApiGetMixTest extends TestCase
      */
     public function testApiGetMix()
     {
+        $this->seed();
+
         $response = $this->get('/api/mix/spacepirate');
 
         $response
@@ -21,7 +26,7 @@ class ApiGetMixTest extends TestCase
                 ["name" => "Tropical Space Pirate"]
             );
 
-        $response = $this->get('/api/mix/&£^$^');
+        $response = $this->get('/api/mix/invalid');
 
         $response
             ->assertStatus(200)

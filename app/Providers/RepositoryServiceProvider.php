@@ -1,7 +1,6 @@
 <?php namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\MixRepository;
 use App\Repositories\CompanyRepository;
 use App\Repositories\UserRepository;

@@ -111,6 +111,21 @@ class ApiController extends Controller
     }
 
     /**
+     * Search for a user
+     *
+     * @param String $username Username string
+     *
+     * @return JsonResponse Json encoded user info
+     */
+    public function findUser(String $username): JsonResponse
+    {
+        if ($user = $this->userRepository->search($username)->first()) {
+            return response()->json(new UserResource($user));
+        }
+        return response()->json(['error' => 'not found']);
+    }
+
+    /**
      * Get information about flavour
      *
      * @param String $slug Flavour slug

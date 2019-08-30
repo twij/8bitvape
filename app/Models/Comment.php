@@ -16,13 +16,13 @@ class Comment extends BaseModel
         return $this->belongsTo('App\Models\User');
     }
 
-    /**
-     * Return related mix
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\Relation Mix
-     */
-    public function mix()
-    {
-        return $this->belongsTo('App\Model\Mix', 'id', 'related_id');
-    }
+    // /**
+    //  * Return related mix
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\Relation Mix
+    //  */
+    // public function mix()
+    // {
+    //     return $this->belongsTo('App\Model\Mix', 'id', 'related_id');
+    // }
 }

@@ -33,10 +33,11 @@ class UserRepository extends Repository
      *
      * @param String $term Search term
      *
-     * @return \App\Models\User User model
+     * @return mixed User model
      */
-    public function search(String $term): ?\App\Models\User
+    public function search(String $term)
     {
-        return $this->model->where('username', 'like', '%'.$term.'%')->first();
+        return $this->model->where('username', 'like', '%'.$term.'%')
+            ->with('mixes')->get();
     }
 }

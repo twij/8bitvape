@@ -21,9 +21,9 @@ class FlavourRepository extends Repository
      *
      * @param String $slug Flavour slug
      *
-     * @return \App\Models\BaseModel Model
+     * @return \App\Models\Flavour Model
      */
-    public function findBySlug(String $slug): ?\App\Models\BaseModel
+    public function findBySlug(String $slug): ?\App\Models\Flavour
     {
         return $this->model->where('slug', $slug)->first();
     }

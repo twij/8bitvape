@@ -71,28 +71,6 @@ class MixController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request Request
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param String $slug Mix Slug
@@ -108,44 +86,6 @@ class MixController extends Controller
         }
 
         abort(404);
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Mix $mix Mix
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Mix $mix)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request Request
-     * @param \App\Models\Mix          $mix     Mix
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Mix $mix)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Mix $mix Mix
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Mix $mix)
-    {
-        //
     }
 
 }

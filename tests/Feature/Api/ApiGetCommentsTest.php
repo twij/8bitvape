@@ -2,10 +2,13 @@
 
 namespace Tests\Feature\Api;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ApiGetCommentsTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *
@@ -13,6 +16,8 @@ class ApiGetCommentsTest extends TestCase
      */
     public function testGetComments()
     {
+        $this->seed();
+        
         $response = $this->get('/api/comments/spacepirate');
 
         $response
@@ -21,7 +26,7 @@ class ApiGetCommentsTest extends TestCase
                 ["name" => "Tropical Space Pirate"]
             );
 
-        $response = $this->get('/api/comments/&£^$^');
+        $response = $this->get('/api/comments/invalid');
 
         $response
             ->assertStatus(200)

@@ -5,28 +5,28 @@ namespace Tests\Feature\Api;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ApiSearchNameTest extends TestCase
+class ApiFindUserTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
-     * Test searching a name via api
+     * Test Find User API endpoint
      *
      * @return void
      */
-    public function testSearchName()
+    public function testFindUser()
     {
         $this->seed();
         
-        $response = $this->get('/api/mix/search/space');
+        $response = $this->get('/api/user/find/barf');
 
         $response
             ->assertStatus(200)
             ->assertJson(
-                ["0" => ["name" => "Tropical Space Pirate"]]
+                ["name" => "barf"]
             );
 
-        $response = $this->get('/api/mix/search/invalid');
+        $response = $this->get('/api/mix/find/invalid');
 
         $response
             ->assertStatus(200)
