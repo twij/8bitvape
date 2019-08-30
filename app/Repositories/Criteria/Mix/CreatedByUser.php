@@ -10,7 +10,7 @@ class CreatedByUser extends Criteria
 
     /**
      * Constructor
-     * 
+     *
      * @param \App\Models\User $user User
      */
     public function __construct(
@@ -20,9 +20,9 @@ class CreatedByUser extends Criteria
     }
 
     /**
-     * @param \App\Models\BaseModel $model      Model 
+     * @param \App\Models\BaseModel $model      Model
      * @param RepositoryInterface   $repository Repository
-     * 
+     *
      * @return mixed
      */
     public function apply($model, RepositoryInterface $repository)

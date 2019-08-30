@@ -13,7 +13,7 @@ class FilterComposer
 
     /**
      * Constructor
-     * 
+     *
      * @param UserRepository    $userRepository    User Repository
      * @param FlavourRepository $flavourRepository Flavour Repository
      */
@@ -29,7 +29,7 @@ class FilterComposer
      * Bind data to the view.
      *
      * @param View $view View template
-     * 
+     *
      * @return void
      */
     public function compose(View $view)

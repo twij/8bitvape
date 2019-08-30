@@ -5,7 +5,8 @@ use App\Repositories\Criteria\Mix\ContainsFlavour;
 use App\Repositories\Criteria\Mix\CreatedByUser;
 use App\Repositories\Criteria\Mix\SearchName;
 
-trait MixCriteria {
+trait MixCriteria
+{
 
     /**
      * Order mixes
@@ -36,8 +37,7 @@ trait MixCriteria {
     {
         if (array_key_exists('contains', $this->input)) {
             $this->mixRepository->pushCriteria(
-                new ContainsFlavour
-                (
+                new ContainsFlavour(
                     $this->flavourRepository,
                     $this->input['contains']
                 )

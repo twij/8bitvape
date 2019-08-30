@@ -12,5 +12,6 @@ before_script:
   - cp .env.travis .env
   
 script:
+  - vendor/bin/phpcs
   - php artisan code:analyse
   - vendor/bin/phpunit --coverage-text

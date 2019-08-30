@@ -8,7 +8,7 @@ class Mix extends JsonResource
      * Transform the resource into an array.
      *
      * @param \Illuminate\Http\Request $request Request
-     * 
+     *
      * @return array
      */
     public function toArray($request)
@@ -20,7 +20,7 @@ class Mix extends JsonResource
             'description' => strip_tags($this->description),
             'flavours' => $this->flavours->map(
                 function ($flavour) {
-                    return [ 
+                    return [
                         'name' => $flavour->name,
                         'company' => $flavour->company->name,
                         'percentage' => $flavour->pivot->percentage

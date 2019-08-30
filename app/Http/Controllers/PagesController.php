@@ -25,7 +25,7 @@ class PagesController extends Controller
      * Show a page
      *
      * @param String $path Page path
-     * 
+     *
      * @return \Illuminate\View\View Page view
      */
     public function show(String $path) : \Illuminate\View\View

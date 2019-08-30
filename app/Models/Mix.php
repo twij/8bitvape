@@ -49,12 +49,11 @@ class Mix extends BaseModel
      * Scope enabled models
      *
      * @param \Illuminate\Database\Query\Builder $query Query
-     * 
+     *
      * @return \Illuminate\Database\Query\Builder Scoped query
      */
     public function scopeEnabled($query)
     {
         return $query->where('enabled', true);
     }
-
 }

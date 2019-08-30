@@ -18,7 +18,7 @@ class Page extends Model
      * Scope enabled pages
      *
      * @param \Illuminate\Database\Query\Builder $query Query
-     * 
+     *
      * @return \Illuminate\Database\Query\Builder Scoped query
      */
     public function scopeEnabled($query)
@@ -30,7 +30,7 @@ class Page extends Model
      * Scope public pages
      *
      * @param \Illuminate\Database\Query\Builder $query Query
-     * 
+     *
      * @return \Illuminate\Database\Query\Builder Scoped query
      */
     public function scopePublic($query)

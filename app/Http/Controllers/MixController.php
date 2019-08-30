@@ -38,7 +38,7 @@ class MixController extends Controller
 
     /**
      * Display a listing of the resource.
-     * 
+     *
      * @param Request $request Request
      *
      * @return \Illuminate\View\View
@@ -74,7 +74,7 @@ class MixController extends Controller
      * Display the specified resource.
      *
      * @param String $slug Mix Slug
-     * 
+     *
      * @return \Illuminate\View\View
      */
     public function show(String $slug): \Illuminate\View\View
@@ -87,5 +87,4 @@ class MixController extends Controller
 
         abort(404);
     }
-
 }

@@ -9,7 +9,7 @@ abstract class Criteria
     /**
      * @param \App\Models\BaseModel $model      Model
      * @param RepositoryInterface   $repository Repository
-     * 
+     *
      * @return mixed
      */
     abstract public function apply($model, Repository $repository);

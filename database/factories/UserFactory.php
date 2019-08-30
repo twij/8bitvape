@@ -21,4 +21,4 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'type' => 'default',
         'remember_token' => str_random(10),
     ];
-}); 
+});

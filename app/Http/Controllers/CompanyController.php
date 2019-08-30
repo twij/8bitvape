@@ -18,5 +18,4 @@ class CompanyController extends Controller
     {
         $this->companyRepository = $companyRepository;
     }
-
 }

@@ -46,5 +46,4 @@ class MixRepository extends Repository
             ->orderBy($orderBy)
             ->where('name', 'like', '%'.$term.'%');
     }
-
 }

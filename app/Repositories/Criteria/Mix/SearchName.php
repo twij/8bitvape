@@ -10,7 +10,7 @@ class SearchName extends Criteria
 
     /**
      * Constructor
-     * 
+     *
      * @param String $term  Term to search
      */
     public function __construct($term)
@@ -19,9 +19,9 @@ class SearchName extends Criteria
     }
 
     /**
-     * @param \App\Models\BaseModel $model      Model 
+     * @param \App\Models\BaseModel $model      Model
      * @param RepositoryInterface   $repository Repository
-     * 
+     *
      * @return mixed
      */
     public function apply($model, RepositoryInterface $repository)

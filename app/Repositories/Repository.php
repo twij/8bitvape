@@ -34,8 +34,8 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     /**
      * @param App        $app        Application
      * @param Collection $collection Collection
-     * 
-     * @throws RepositoryException Exception 
+     *
+     * @throws RepositoryException Exception
      */
     public function __construct(App $app, Collection $collection)
     {
@@ -86,17 +86,17 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
      * @param array   $data      Data
      * @param Integer $id        Id
      * @param string  $attribute Attribute
-     * 
+     *
      * @return mixed
      */
-    public function update(array $data, $id, $attribute="id")
+    public function update(array $data, $id, $attribute = "id")
     {
         return $this->model->where($attribute, '=', $id)->update($data);
     }
 
     /**
      * @param Integer $id Id
-     * 
+     *
      * @return mixed
      */
     public function delete($id)
@@ -107,7 +107,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     /**
      * @param mixed $id      ID
      * @param array $columns Column
-     * 
+     *
      * @return mixed Result
      */
     public function find($id, $columns = array('*'))
@@ -120,7 +120,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
      * @param mixed $attribute Attribute
      * @param mixed $value     Value
      * @param array $columns   Columns
-     * 
+     *
      * @return mixed
      */
     public function findBy($attribute, $value, $columns = array('*'))
@@ -131,7 +131,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
 
     /**
      * @return \Illuminate\Database\Eloquent\Builder
-     * 
+     *
      * @throws RepositoryException
      */
     public function makeModel()
@@ -139,7 +139,9 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
         $model = $this->app->make($this->model());
 
         if (!$model instanceof Model) {
-            throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+            throw new RepositoryException(
+                "Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model"
+            );
         }
 
         return $this->model = $model->newQuery();

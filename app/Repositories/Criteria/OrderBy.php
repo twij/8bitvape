@@ -12,7 +12,7 @@ class OrderBy extends Criteria
 
     /**
      * Constructor
-     * 
+     *
      * @param String $column    Column to order
      * @param String $direction Direction of order
      */
@@ -23,9 +23,9 @@ class OrderBy extends Criteria
     }
 
     /**
-     * @param \App\Models\BaseModel $model      Model 
+     * @param \App\Models\BaseModel $model      Model
      * @param RepositoryInterface   $repository Repository
-     * 
+     *
      * @return mixed Query
      */
     public function apply($model, RepositoryInterface $repository)

@@ -20,7 +20,7 @@ class PageRepository extends Repository
      * Get a page by its slug
      *
      * @param String $slug Page slug
-     * 
+     *
      * @return \App\Models\Page
      */
     public function findBySlug(String $slug): ?\App\Models\Page
@@ -32,7 +32,7 @@ class PageRepository extends Repository
      * Get a page by its path
      *
      * @param String $path Page path
-     * 
+     *
      * @return \App\Models\Page
      */
     public function findByPath(String $path): ?\App\Models\Page

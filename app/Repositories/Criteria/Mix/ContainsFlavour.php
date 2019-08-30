@@ -25,9 +25,9 @@ class ContainsFlavour extends Criteria
     }
 
     /**
-     * @param \App\Models\BaseModel $model      Model 
+     * @param \App\Models\BaseModel $model      Model
      * @param RepositoryInterface   $repository Repository
-     * 
+     *
      * @return mixed
      */
     public function apply($model, RepositoryInterface $repository)
