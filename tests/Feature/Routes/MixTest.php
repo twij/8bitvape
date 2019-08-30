@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class PageRoutesTest extends TestCase
+class MixTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -19,28 +19,13 @@ class PageRoutesTest extends TestCase
     {
         $this->seed();
 
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-
-        $response = $this->get('/?search=space');
-
-        $response->assertStatus(200);
-
-        $response = $this->get('/?user=barf');
-
-        $response->assertStatus(200);
-
-        $response = $this->get('/?order=name&direction=DESC&contains=passionfruit&user=barf&search=test');
-
-        $response->assertStatus(200);
-
         $response = $this->get('/mix/spacepirate');
-
         $response->assertStatus(200);
+        $response->assertViewHas('mix');
+        $mix = $response->original->getData()['mix'];
+        $this->assertInstanceOf('App\Models\Mix', $mix);
 
         $response = $this->get('/mix/invalid');
-
         $response->assertStatus(404);
     }
 }
