@@ -249,6 +249,10 @@ a:visited {
   transition-duration: 0.5s;
 }
 
+.mix-link:hover {
+  text-decoration: none;
+}
+
 .mixes-container {
   padding: 10px;
   margin: 10px;
