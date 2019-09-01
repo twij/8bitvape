@@ -10,7 +10,8 @@ use App\Http\Resources\Flavour as FlavourResource;
 use App\Http\Resources\MixComments as MixCommentsResource;
 use Illuminate\Http\JsonResponse;
 
-class ApiController extends Controller
+class 
+ApiController extends Controller
 {
     protected $companyRepository;
     protected $flavourRepository;
