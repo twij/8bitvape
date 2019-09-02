@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mix;
 use App\Repositories\MixRepository;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Traits\MixCriteria;
 use App\Repositories\FlavourRepository;
 use App\Repositories\UserRepository;
+use App\Jobs\MixJuice;
 
 class MixController extends Controller
 {
@@ -77,11 +77,33 @@ class MixController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(String $slug): \Illuminate\View\View
+    public function show(String $slug, Request $request): \Illuminate\View\View
     {
+        $input = $this->input = array_filter(
+            $request->validate(
+                [
+                    'order' => [
+                        'nullable',
+                        Rule::in('name', 'created_at')
+                    ],
+                    'direction' => [
+                        'nullable',
+                        Rule::in('ASC', 'DESC')
+                    ],
+                    'contains' => 'nullable|exists:flavours,slug',
+                    'user' => 'nullable|exists:users,username',
+                    'search' => 'nullable|string'
+                ]
+            )
+        );
+
         $mix = $this->mixRepository->findBySlug($slug);
 
+
+        
         if ($mix) {
+            MixJuice::dispatchNow($mix, $input);
+
             return view('mix', compact('mix'));
         }
 
