@@ -32,7 +32,7 @@ class MixJuice implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @return void
+     * @return String
      */
     public function handle()
     {
