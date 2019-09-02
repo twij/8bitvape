@@ -2,40 +2,112 @@
 
 {% block content %}
 
-
-
 <div class="mix-container">
-    <div class="mix-title">
-        <div class="col">
-            <h1>{{ mix.name }}</h1>
-            <h2>by <a href="/?user={{ mix.user.username }}">{{ mix.user.username }}</a></h2>
-        </div>
-        <div class="col text-right">
-            <p>Creator Rating: {{ mix.creator_rating }}/5</p>
-        </div>
-    </div>
-    <div class="mix-description">
-        <p>{{ mix.description|raw }}</p>
-    </div>
-    <div class="mix-recipe">
-        {% for flavour in mix.flavours %}
-            <div class="flavour">
-                <div class="flavour">
-                    <img src="/img/flavimg/{{ flavour.slug }}.png" alt="{{ flavour.name }}" />
-                    <p><strong>{{ flavour.name|raw }}</strong> by {{ flavour.company.name }}</p>
-                </div>
-                <div class="amount">{{ flavour.pivot.percentage }}%</div>
+    <div class="mix-info">
+        <div class="mix-title">
+            <div class="col">
+                <h1>{{ mix.mix.name }}</h1>
+                <h2>by <a href="/?user={{ mix.mix.user.username }}">{{ mix.mix.user.username }}</a></h2>
             </div>
-        {% endfor %}
+            <div class="col text-right">
+                <p>Creator Rating: {{ mix.mix.creator_rating }}/5</p>
+            </div>
+        </div>
+        <div class="mix-description">
+            <p>{{ mix.mix.description|raw }}</p>
+        </div>
+        <div class="mix-recipe">
+            {% for flavour in mix.flavours %}
+                <div class="flavour">
+                    <div class="flavour-name">
+                        <img src="/img/flavimg/{{ flavour.slug }}.png" alt="{{ flavour.name }}" />
+                        <p><strong>{{ flavour.name|raw }}</strong> by {{ flavour.company }}</p>
+                    </div>
+                    <div class="amount">{{ flavour.amount }}ml</div>
+                    <div class="percent">{{ flavour.percent }}%</div>
+                </div>
+            {% endfor %}
+            <div class="calc-results">
+                <div class="name">
+                    <div class="holder"></div>
+                    <strong>Nicotine Base ({{ mix.base_strength }}mg {{ mix.base_type }})</strong>
+                </div>
+                <div class="amount">
+                    <strong>{{ mix.nicotine_ml }}ml</strong>
+                </div>
+                <div class="percent">
+                    <strong>{{ mix.nicotine_percent }}%</strong>
+                </div>
+            </div>
+            <div class="calc-results">
+                <div class="name">
+                    <div class="holder"></div>
+                    <strong>VG</strong>
+                </div>
+                <div class="amount">
+                    <strong>{{ mix.vg_amount }}ml</strong>
+                </div>
+                <div class="percent">
+                    <strong>{{ mix.vg }}%</strong>
+                </div>
+            </div>
+            <div class="calc-results">
+                <div class="name">
+                    <div class="holder"></div>
+                    <strong>PG</strong>
+                </div>
+                <div class="amount">
+                    <strong>{{ mix.pg_amount }}ml</strong>
+                </div>
+                <div class="percent">
+                    <strong>{{ mix.pg }}%</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mix-calc">
+        <form>
+            <div class="form-group">
+                <h1>Juice Calculator</h1>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity (ml)</label>
+                <input type="number" name="quantity" class="calc" value="{{ mix.quantity }}" min="1" step="1">
+            </div>
+            <div class="form-group">
+                <label for="vg">Desired VG%</label>
+                <input type="number" name="vg" class="calc" value="{{ mix.vg }}" min="0" max="100" step="1">
+            </div>
+            <div class="form-group">
+                <label for="pg">Desired PG%</label>
+                <input type="number" name="pg" class="calc" value="{{ mix.pg }}" min="0" max="100" step="1">
+            </div>
+            <div class="form-group">
+                <label for="strength">Desired Strength (mg)</label>
+                <input type="number" name="strength" class="calc" value="{{ mix.strength }}" min="0" max="36" step="1">
+            </div>
+            <div class="form-group">
+                <label for="base-strength">Base Strength (mg)</label>
+                <input type="number" name="base-strength" class="calc" value="{{ mix.base_strength }}" min="1" step="1">
+            </div>
+            <div class="form-group">
+                <label for="base-type">Base Type</label>
+                <input type="radio" name="base-type" class="radio" value="VG"{% if mix.base_type == 'VG' %} checked{% endif %}> VG
+                <input type="radio" name="base-type" class="radio" value="PG"{% if mix.base_type == 'PG' %} checked{% endif %}> PG
+            </div>
+            <div class="form-group submit-group">
+                <button type="submit" class="btn-calc">Calculate</button>
+            </div>
+        </form>
     </div>
 </div>
 
 <div class="comment-title">
-    <h1>{{ mix.comments|length }} comments</h1>
-    <h1>Community Rating: {{ mix.rating }}/5</h1>
+    <h1>{{ mix.mix.comments|length }} comments</h1>
+    <h1>Community Rating: {{ mix.mix.rating }}/5</h1>
 </div>
 
-{% set comments = mix.comments().paginate(5) %}
+{% set comments = mix.mix.comments().paginate(5) %}
 
 {% if comments|length > 0 %}
     {% for comment in comments %}

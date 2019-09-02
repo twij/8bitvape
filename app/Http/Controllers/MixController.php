@@ -82,28 +82,23 @@ class MixController extends Controller
         $input = $this->input = array_filter(
             $request->validate(
                 [
-                    'order' => [
+                    'quantity' => 'nullable|integer|min:1',
+                    'vg' => 'nullable|integer|min:0|max:100',
+                    'pg' => 'nullable|integer|min:0|max:100',
+                    'base-strength' => 'nullable|integer|min:1|max:100',
+                    'base-type' => [
                         'nullable',
-                        Rule::in('name', 'created_at')
+                        Rule::in('VG', 'PG')
                     ],
-                    'direction' => [
-                        'nullable',
-                        Rule::in('ASC', 'DESC')
-                    ],
-                    'contains' => 'nullable|exists:flavours,slug',
-                    'user' => 'nullable|exists:users,username',
-                    'search' => 'nullable|string'
+                    'strength' => 'nullable|integer|min:0|max:36',
                 ]
             )
         );
 
         $mix = $this->mixRepository->findBySlug($slug);
-
-
         
         if ($mix) {
-            MixJuice::dispatchNow($mix, $input);
-
+            $mix = MixJuice::dispatchNow($mix, $input);
             return view('mix', compact('mix'));
         }
 

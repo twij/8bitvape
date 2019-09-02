@@ -170,6 +170,98 @@ a:visited {
     margin: 10px;
     background-color: #000;
     color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @media screen and (max-width: 690px) {
+        display: block;
+    }
+
+    .mix-info {
+        max-width: 70%;
+        @media screen and (max-width: 690px) {
+            max-width: 100%;
+            margin: 10px;
+        }
+    }
+
+    .mix-calc {
+        max-width: 30%;
+        margin-left: 10px;
+
+        
+        form {
+
+            h1 {
+                margin: 5px;
+                font-size: 18px;
+            }
+
+            .form-group {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                min-height: 35px;
+
+                label {
+                    margin-right: 20px;
+                }
+
+                @media screen and (max-width: 950px) {
+                    justify-content: space-between;
+                }
+            }
+
+            .radio {
+                margin: 5px;
+            }
+
+            .submit-group {
+                align-self: flex-end;
+            }
+        }
+    
+        .calc {
+            background-color: white;
+            border: 1px solid white;
+            padding: 2px 8px;
+            margin: 5px;
+            background-image: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            box-sizing: border-box;
+            width: 80px;
+        }
+    
+        .btn-calc {
+            transition-duration: 0.5s;
+            padding: 3px 8px;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+            border: 1px solid white;
+            font-weight: 500;
+            margin: 15px;
+        }
+    
+        .btn-calc:hover {
+            background-color: #fff;
+            color: #000;
+            border: 1px solid black;
+        }
+
+        @media screen and (max-width: 950px) {
+            max-width: 30%;
+            margin-left: 30px;
+        }
+
+        @media screen and (max-width: 690px) {
+            max-width: 100%;
+            margin: 10px;
+        }
+    }
 
     .mix-title {
         display: flex;
@@ -192,14 +284,60 @@ a:visited {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .flavour-name {
+            width: 50%;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+                
+            img {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+                display: inline-block;
+            }
+        }
     
-        img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
+        .amount {
+            width: 25%;
+            margin-left: 10px;
+            font-weight: bold;
         }
         
+        .percent {
+            width: 25%;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    }
+
+    .mix-recipe .calc-results {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .name {
+            .holder {
+                width: 40px !important;
+            }
+            padding: 10px 0px;
+            width: 50%;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    
         .amount {
+            width: 25%;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        .percent {
+            width: 25%;
             margin-left: 10px;
             font-weight: bold;
         }
