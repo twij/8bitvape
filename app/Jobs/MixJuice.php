@@ -79,8 +79,6 @@ class MixJuice implements ShouldQueue
         $this->vg_amount = $this->getAmount($this->vg);
         $this->pg_amount = $this->getAmount($this->pg);
 
-        dd($this);
-
         if ($this->base_type == "VG") {
             $this->deductVG($this->nicotine_ml);
         } else {
@@ -144,7 +142,6 @@ class MixJuice implements ShouldQueue
     {
         $this->vg_amount -= $amount;
         if ($this->vg_amount < 0) {
-            dd($this);
             $this->pg_amount + $this->vg_amount;
             $this->vg_amount = 0;
         }
