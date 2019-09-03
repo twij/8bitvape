@@ -43,7 +43,10 @@ class MixJuice implements ShouldQueue
         $this->quantity = array_key_exists('quantity', $this->options) ? (Float)$this->options['quantity'] : 30;
         $this->vg = array_key_exists('vg', $this->options) ? (Float)$this->options['vg'] : 0;
         $this->pg = array_key_exists('pg', $this->options) ? (Float)$this->options['pg'] : 0;
-        $this->base_strength = array_key_exists('base-strength', $this->options) ? (Float)$this->options['base-strength'] : 72;
+        $this->base_strength = array_key_exists(
+            'base-strength',
+            $this->options
+        ) ? (Float)$this->options['base-strength'] : 72;
         $this->base_type = array_key_exists('base-type', $this->options) ? $this->options['base-type'] : 'VG';
         $this->strength = array_key_exists('strength', $this->options) ? (Float)$this->options['strength'] : 6;
 
@@ -74,10 +77,10 @@ class MixJuice implements ShouldQueue
     public function handle()
     {
         $this->nicotine_percent = number_format(($this->strength / $this->base_strength) * 100, 2);
-        $this->nicotine_ml = $this->getAmount($this->nicotine_percent);
+        $this->nicotine_ml = $this->getAmount((Float)$this->nicotine_percent);
 
-        $this->vg_amount = $this->getAmount($this->vg);
-        $this->pg_amount = $this->getAmount($this->pg);
+        $this->vg_amount = $this->getAmount((Float)$this->vg);
+        $this->pg_amount = $this->getAmount((Float)$this->pg);
 
         if ($this->base_type == "VG") {
             $this->deductVG((Float)$this->nicotine_ml);
@@ -88,7 +91,7 @@ class MixJuice implements ShouldQueue
         $this->flavours = new Collection();
 
         foreach ($this->mix->flavours as $flavour) {
-            $flavour_amount = $this->getAmount($flavour->pivot->percentage);
+            $flavour_amount = $this->getAmount((Float)$flavour->pivot->percentage);
             $this->deductPG((Float)$flavour_amount);
             $flavour = [
                 'name' => $flavour->name,
