@@ -79,20 +79,25 @@ class MixController extends Controller
      */
     public function show(String $slug, Request $request): \Illuminate\View\View
     {
-        $input = $this->input = array_filter(
-            $request->validate(
-                [
-                    'quantity' => 'nullable|integer|min:1',
-                    'vg' => 'nullable|integer|min:0|max:100',
-                    'pg' => 'nullable|integer|min:0|max:100',
-                    'base-strength' => 'nullable|integer|min:1|max:100',
-                    'base-type' => [
-                        'nullable',
-                        Rule::in('VG', 'PG')
-                    ],
-                    'strength' => 'nullable|integer|min:0|max:36',
-                ]
-            ), 'strlen');
+        $input = $this->input = array_diff(
+            array_map(
+                'trim',
+                $request->validate(
+                    [
+                        'quantity' => 'nullable|integer|min:1',
+                        'vg' => 'nullable|integer|min:0|max:100',
+                        'pg' => 'nullable|integer|min:0|max:100',
+                        'base-strength' => 'nullable|integer|min:1|max:100',
+                        'base-type' => [
+                            'nullable',
+                            Rule::in('VG', 'PG')
+                        ],
+                        'strength' => 'nullable|integer|min:0|max:36',
+                    ]
+                )
+            ),
+            array('')
+        );
 
         $mix = $this->mixRepository->findBySlug($slug);
         
