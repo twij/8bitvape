@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class FlavourCompaniesTableSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class FlavourCompaniesTableSeeder extends Seeder
         foreach ($flavours as $flavour) {
             $data = [
                 ['name' => $flavour->company,
-                'slug' => str_slug($flavour->company, '-'),
+                'slug' => Str::slug($flavour->company, '-'),
                 'user_id' => 1,
                 'company_type' => 1],
             ];

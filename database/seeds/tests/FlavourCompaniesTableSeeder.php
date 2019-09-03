@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class FlavourCompaniesTableSeeder extends Seeder
 {
@@ -16,7 +17,7 @@ class FlavourCompaniesTableSeeder extends Seeder
             $data = [
                 [
                     'name' => 'Cupcake World',
-                    'slug' => str_slug('Cupcake World', '-'),
+                    'slug' => Str::slug('Cupcake World', '-'),
                     'user_id' => 1,
                     'company_type' => 1
                 ],
