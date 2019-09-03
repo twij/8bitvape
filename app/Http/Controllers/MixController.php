@@ -92,8 +92,7 @@ class MixController extends Controller
                     ],
                     'strength' => 'nullable|integer|min:0|max:36',
                 ]
-            )
-        );
+            ), 'strlen');
 
         $mix = $this->mixRepository->findBySlug($slug);
         
