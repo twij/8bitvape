@@ -408,13 +408,18 @@ a:visited {
 .warning {
     padding: 5px;
     margin: 5px;
-    border: 2px solid darken(red, 15%);;
+    border: 2px solid darken(red, 15%);
     background-color: lighten(red, 40%);
     color: darken(red, 15%);
 
     p {
         padding: 0;
         margin: 0;
+    }
+
+    a {
+        color: darken(red, 15%);
+        text-decoration: underline;
     }
 }
 

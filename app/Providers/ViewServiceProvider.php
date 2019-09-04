@@ -24,10 +24,14 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Using class based composers...
         View::composer(
             'index',
             'App\Http\View\Composers\FilterComposer'
+        );
+
+        View::composer(
+            ['index'],
+            'App\Http\View\Composers\DevComposer'
         );
     }
 }
