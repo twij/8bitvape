@@ -22,3 +22,7 @@ Auth::routes();
 Route::get('temp/pixel', 'SvgController@create');
 
 Route::get('/{any}', 'PagesController@show')->where('any', '.*');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
