@@ -1,6 +1,5 @@
 <?php namespace App\Repositories;
 
-use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Repository;
 
 class MixRepository extends Repository
@@ -36,6 +35,7 @@ class MixRepository extends Repository
      *
      * @param String $term Search Term
      *
+     * @return \Illuminate\Database\Query\Builder $query
      */
     public function search(String $term, String $orderBy = 'id')
     {

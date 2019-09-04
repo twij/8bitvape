@@ -30,7 +30,10 @@ class DatabaseSeeder extends Seeder
                 \Database\Seeds\Tests\UsersTableSeeder::class,
                 \Database\Seeds\Tests\FlavourCompaniesTableSeeder::class,
                 \Database\Seeds\Tests\FlavourTableSeeder::class,
-                \Database\Seeds\Tests\MixesTableSeeder::class
+                \Database\Seeds\Tests\MixesTableSeeder::class,
+                \Database\Seeds\Tests\PagesTableSeeder::class,
+                \Database\Seeds\Tests\ProductsTableSeeder::class,
+                \Database\Seeds\Tests\PriceOptionsTableSeeder::class,
             ]);
         }
     }

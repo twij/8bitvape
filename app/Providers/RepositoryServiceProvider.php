@@ -5,10 +5,14 @@ use App\Repositories\MixRepository;
 use App\Repositories\CompanyRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\FlavourRepository;
+use App\Repositories\PageRepository;
+use App\Repositories\ProductRepository;
 use App\Models\Mix;
 use App\Models\Company;
 use App\Models\User;
 use App\Models\Flavour;
+use App\Models\Page;
+use App\Models\Product;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -36,6 +40,18 @@ class RepositoryServiceProvider extends ServiceProvider
             "App\Repositories\Contracts\RepositoryInterface",
             function () {
                 return new FlavourRepository(app(), collect(new Flavour()));
+            }
+        );
+        $this->app->singleton(
+            "App\Repositories\Contracts\RepositoryInterface",
+            function () {
+                return new PageRepository(app(), collect(new Page()));
+            }
+        );
+        $this->app->singleton(
+            "App\Repositories\Contracts\RepositoryInterface",
+            function () {
+                return new ProductRepository(app(), collect(new Product()));
             }
         );
     }

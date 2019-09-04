@@ -19,6 +19,6 @@ Route::get('mix/{slug}', 'MixController@show');
 
 Auth::routes();
 
-Route::get('temp/pixel', 'SvgController@create');
+Route::get('shop', 'ProductsController@index');
 
 Route::get('/{any}', 'PagesController@show')->where('any', '.*');
