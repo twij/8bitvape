@@ -18,13 +18,15 @@
             <input type="file" name="image" placeholder="Image file" accept="image/*" />
             <button type="submit">Upload</button>
         </form>
+        {% if image %}
+            <p>Image uploaded with id: {{ image.id }}</p>
+
+            <p><strong><a href="{{ url('/') }}/image/{{ image.id }}" target="_blank">{{ url('/') }}/image/{{ image.id }}</a></strong></p>
+
+            <img src="/image/{{ image.id }}" alt="{{ image.src_text }}">
+        {% endif %}
     </div>
     
-    {% if image %}
-
-    Image uploaded with id: {{ image.id }}
-    <img src="/image/{{ image.id }}" alt="{{ image.src_text }}">
-    {% endif %}
 </div>
 
 
