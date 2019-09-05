@@ -18,12 +18,14 @@
 <body>
     <div class="page-container">
         {% if dev_branch %}
-                <div class="warning">
-                    You are currently using the development branch. You can switch to the main branch <a href="https://8bitvape.com/">here</a>.
-                </div>
-            {% endif %}
+            <div class="warning">
+                You are currently using the development branch. You can switch to the main branch <a href="https://8bitvape.com/">here</a>.
+            </div>
+        {% endif %}
 
         {% include('partials/header') %}
+
+        {% include('partials/messages') %}
 
 
         <div class="wrapper">

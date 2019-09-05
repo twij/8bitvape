@@ -1,0 +1,28 @@
+{% extends 'layouts/default' %}
+
+{% block content %}
+
+<div class="login-container">
+    <div class="title">
+        <h1>Login</h1>
+    </div>
+    <div class="login-form">
+        <form action="{{ route('login') }}" method="POST">
+            <input type="hidden" value="{{csrf_token()}}" name="_token">
+            <div class="form-group">
+                <input class="login" type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="form-group">
+            <input class="login" type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="form-group">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember"> Remember me?
+            </div>
+            <div class="submit-group">
+                <button type="submit" class="btn-search">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

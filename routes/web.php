@@ -14,16 +14,16 @@ use App\Http\Resources\MixCollection;
 |
 */
 
-Route::get('admin/image/upload', 'ImageController@upload');
-Route::post('admin/image/upload', 'ImageController@create');
-
-Route::get('image/{id}', 'ImageController@get');
+Route::get('admin/image/upload', 'ImageController@upload')->middleware('auth');
+Route::post('admin/image/upload', 'ImageController@create')->middleware('auth');
 
 Route::get('/', 'MixController@index');
 Route::get('mix/{slug}', 'MixController@show');
 
 Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
 
-Route::get('shop', 'ProductsController@index');
+Route::get('image/{id}', 'ImageController@get');
+Route::get('shop', 'ProductsController@index')->middleware('auth');
 
 Route::get('/{any}', 'PagesController@show')->where('any', '.*');

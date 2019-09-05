@@ -43,6 +43,8 @@ class ImageController extends Controller
 
     public function create(Request $request)
     {
+        $this->middleware('auth');
+
         $input = $request->validate(
             [
                 'image' => 'required|image',
@@ -54,7 +56,7 @@ class ImageController extends Controller
         $image = UploadImage::dispatchNow($input);
 
         if ($image) {
-            return 'ok';
+            return view('admin/image_upload', compact('image'));
         } else {
             abort(500);
         }
