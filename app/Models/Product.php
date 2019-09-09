@@ -34,7 +34,7 @@ class Product extends Model
      */
     public function images(): ?\Illuminate\Database\Eloquent\Relations\Relation
     {
-        return $this->hasMany('App\Models\Image');
+        return $this->belongsToMany('App\Models\Image', 'product_images');
     }
 
     /**

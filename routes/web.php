@@ -24,6 +24,6 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('image/{id}', 'ImageController@get');
-Route::get('shop', 'ProductsController@index')->middleware('auth');
+Route::get('shop', 'ProductsController@index');
 
 Route::get('/{any}', 'PagesController@show')->where('any', '.*');

@@ -2,14 +2,27 @@
 
 {% block content %}
 
-<div class="page-container">
-    <div class="title">
+
+
+<div class="product-container">
+    <div class="image-container">
+        <div id="main-image" style="background-image: url('/image/{{ product.images.first.id }}')">
+        </div>
+        <div id="image-list">
+            {% for image in product.images %}
+                <div class="thumb"><img src="/image/{{ image.id }}" alt="{{ image.alt_text }}" class="thumb-img"></div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="product-info">
         <h1>{{ product.name }}</h1>
         <h2>{{ product.description }}</h2>
     </div>
-    {% if product.page %}
-        {% include '../' ~ product.page.include %}
-    {% endif %}
 </div>
+
+{% if product.page %}
+    {% include '../' ~ product.page.include %}
+{% endif %}
 
 {% endblock %}

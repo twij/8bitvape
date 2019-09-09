@@ -669,6 +669,67 @@ a:visited {
   color: black;
 }
 
+.product-title {
+  padding: 10px;
+  margin: 10px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.product-title h1 {
+  margin: 5px;
+}
+
+.product-title h2 {
+  font-size: 18px;
+  margin: 5px;
+}
+
+.product-container {
+  margin: 10px;
+  display: flex;
+}
+
+.product-container .image-container {
+  max-width: 50%;
+}
+
+.product-container .image-container #main-image {
+  width: 100%;
+  padding-top: 100%;
+  background-size: cover;
+  margin-bottom: 10px;
+}
+
+.product-container .image-container #image-list {
+  display: flex;
+  justify-content: space-between;
+  margin: -5px;
+}
+
+.product-container .image-container #image-list .thumb {
+  margin: 5px;
+}
+
+.product-container .product-info {
+  padding: 10px;
+  margin: 0 0 0 10px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  min-width: 50%;
+}
+
+.product-container .product-info h1 {
+  margin: 5px;
+}
+
+.product-container .product-info h2 {
+  font-size: 18px;
+  margin: 5px;
+}
+
 .rb-container {
   display: block;
   position: relative;
