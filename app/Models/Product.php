@@ -28,6 +28,16 @@ class Product extends Model
     }
 
     /**
+     * Images relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\Relation Image
+     */
+    public function images(): ?\Illuminate\Database\Eloquent\Relations\Relation
+    {
+        return $this->hasMany('App\Models\Image');
+    }
+
+    /**
      * Scope enabled models
      *
      * @param \Illuminate\Database\Eloquent\Builder $query Query
