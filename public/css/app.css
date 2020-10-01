@@ -660,6 +660,10 @@ a:visited {
   color: black;
 }
 
+.flex.items-center.justify-between svg {
+  max-width: 10px;
+}
+
 .rb-container {
   display: block;
   position: relative;
