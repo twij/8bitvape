@@ -51,7 +51,7 @@
     {% endfor %}
     </div>
 
-    {{ mixes.onEachSide(3).links()|raw }}
+    {{ mixes.onEachSide(3).links("pagination::bootstrap-4")|raw }}
 
     {% if mixes|length == 0 %}
         <div class="mixes-container">
