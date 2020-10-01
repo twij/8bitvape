@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Routes;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -24,14 +24,14 @@ class MixWithJuiceMixTest extends TestCase
         $response->assertViewHas('mix');
         $mix = $response->original->getData()['mix'];
         $this->assertInstanceOf('App\Jobs\MixJuice', $mix);
-        $this->assertAttributeEquals(2000, 'quantity', $mix);
-        $this->assertAttributeEquals(60.0, 'vg', $mix);
-        $this->assertAttributeEquals(40.0, 'pg', $mix);
-        $this->assertAttributeEquals(50.0, 'base_strength', $mix);
-        $this->assertAttributeEquals(8.0, 'strength', $mix);
-        $this->assertAttributeEquals(16.00, 'nicotine_percent', $mix);
-        $this->assertAttributeEquals(880.0, 'vg_amount', $mix);
-        $this->assertAttributeEquals(400.0, 'pg_amount', $mix);
+        $this->assertEquals(2000, $mix->quantity);
+        $this->assertEquals(60.0, $mix->vg);
+        $this->assertEquals(40.0, $mix->pg);
+        $this->assertEquals(50.0, $mix->base_strength);
+        $this->assertEquals(8.0, $mix->strength);
+        $this->assertEquals(16.00, $mix->nicotine_percent);
+        $this->assertEquals(880.0, $mix->vg_amount);
+        $this->assertEquals(400.0, $mix->pg_amount);
         $this->assertArrayHasKey('name', $mix->flavours[0]);
         $this->assertArrayHasKey('slug', $mix->flavours[0]);
         $this->assertArrayHasKey('company', $mix->flavours[0]);
