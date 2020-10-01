@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Jobs;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -8,10 +8,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Jobs\MixJuice;
 use App\Models\Mix;
 
-class MixJuiceDeductVG extends TestCase
+class MixJuiceDeductVGTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /**
      * A basic unit test example.
      *

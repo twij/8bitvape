@@ -1,9 +1,11 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
-use App\Mix;
+use App\Models\Mix;
 use Illuminate\Support\Facades\DB;
-use App\User;
+use App\Models\User;
 
 class MixesTableSeeder extends Seeder
 {
