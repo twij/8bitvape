@@ -22,7 +22,10 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert($data);
 
-        $users = DB::connection('8bitvape_old')->table('commix')->select(DB::raw('username'))->groupBy('username')->get();
+        $users = DB::connection('8bitvape_old')
+            ->table('commix')
+            ->select(DB::raw('username'))
+            ->groupBy('username')->get();
         foreach ($users as $user) {
             $data = [
                 'username' => strtolower($user->username),
@@ -34,6 +37,7 @@ class UsersTableSeeder extends Seeder
                 DB::table('users')->insert($data);
             }
         }
-        $this->command->getOutput()->writeln("<info>Users seeded OK!</info>");
+        $this->command->getOutput()
+            ->writeln("<info>Users seeded OK!</info>");
     }
 }

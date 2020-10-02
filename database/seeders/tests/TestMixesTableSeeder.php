@@ -20,7 +20,9 @@ class MixesTableSeeder extends Seeder
             $mix->type_id = 1;
             $mix->name = 'Tropical Space Pirate';
             $mix->slug = 'spacepirate';
-            $mix->description = 'Blast off into outer space with this tropical concoction, sure to tickle your taste buds. Reminds us of lime starbursts. This is very popular with our local customers! Contains a mix of Lime, Pineapple and Passion fruit.';
+            $mix->description = 'Blast off into outer space with this tropical concoction,' .
+                ' sure to tickle your taste buds. Reminds us of lime starbursts. This is' .
+                ' very popular with our local customers! Contains a mix of Lime, Pineapple and Passion fruit.';
             $mix->creator_rating = 5;
             $mix->enabled = true;
             $mix->save();
@@ -38,9 +40,8 @@ class MixesTableSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ];
-            
+
             DB::table('comments')->insert($data);
         }
-
     }
 }
