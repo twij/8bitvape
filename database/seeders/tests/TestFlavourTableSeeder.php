@@ -20,7 +20,8 @@ class FlavourTableSeeder extends Seeder
                     'flavour_company_id' => 1,
                     'flavour_type_id' => 1,
                     'user_id' => 1,
-                    'description' => 'A mighty pineapple blast. Adds a tropical twist to any flavour.',
+                    'description' =>
+                        'A mighty pineapple blast. Adds a tropical twist to any flavour.',
                     'enabled' => true
                 ],
                 [
@@ -29,7 +30,8 @@ class FlavourTableSeeder extends Seeder
                     'flavour_company_id' => 1,
                     'flavour_type_id' => 1,
                     'user_id' => 1,
-                    'description' => 'A sharp citrus tang. Nicely intense.',
+                    'description' =>
+                        'A sharp citrus tang. Nicely intense.',
                     'enabled' => true
                 ],
                 [
@@ -38,7 +40,10 @@ class FlavourTableSeeder extends Seeder
                     'flavour_company_id' => 1,
                     'flavour_type_id' => 1,
                     'user_id' => 1,
-                    'description' => 'The incredibly versatile taste of this south American favourite works great in plenty of mixes, complementing both dessert and fruit based concoctions alike.',
+                    'description' =>
+                        'The incredibly versatile taste of this south American' .
+                        ' favourite works great in plenty of mixes, complementing' .
+                        ' both dessert and fruit based concoctions alike.',
                     'enabled' => true
                 ]
             ];
